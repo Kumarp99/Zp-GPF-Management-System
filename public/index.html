@@ -91,6 +91,12 @@
             font-size: 2px;
             
         }
+        .custome{
+            
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+        }
 
         
 
@@ -297,7 +303,7 @@
         .gpf-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 8px;
+            font-size: 12px;
         }
         
         .gpf-table th {
@@ -3626,14 +3632,14 @@
                     }
                     
                     .print-header h1 {
-                        font-size: 8px !important;
+                        font-size: 7px !important;
                         font-weight: bold !important;
                         margin-bottom: 5px !important;
                         color: #4a7ca7 !important;
                     }
                     
                     .print-header h2 {
-                        font-size: 6px !important;
+                        font-size: 5px !important;
                         margin-bottom: 0 !important;
                         color: #6c9bd2 !important;
                     }
@@ -3673,7 +3679,7 @@
                     .print-detail-row {
                         display: flex !important;
                         margin-bottom: 8px !important;
-                        font-size: 8px !important;
+                        font-size: 9px !important;
                     }
                     
                     .print-detail-label {
@@ -3689,8 +3695,8 @@
                     .print-gpf-table {
                         width: 100% !important;
                         border-collapse: collapse !important;
-                        margin-bottom: 15px !important;
-                        font-size: 8px !important;
+                        margin-bottom: 6px !important;
+                        font-size: 10px !important;
                     }
                     
                     .print-gpf-table th {
@@ -3723,13 +3729,13 @@
                     
                     /* Summary table */
                     .print-summary {
-                        margin-top: 10px !important;
+                        margin-top: 4px !important;
                     }
                     
                     .print-summary-table {
                         width: 100% !important;
                         border-collapse: collapse !important;
-                        font-size: 8px !important;
+                        font-size: 10px !important;
                     }
                     
                     .print-summary-table th {
@@ -3794,8 +3800,17 @@
             printContainer.innerHTML = `
                 <div class="print-navbar">
                     <div class="print-navbar-brand">
-                        <img src="https://ik.imagekit.io/htkonwcyl/pics/Nlr-zp.jpeg?updatedAt=1765869301452" alt="GPF Logo">
-                        ZP GPF NELLORE
+                        <img src="https://ik.imagekit.io/htkonwcyl/pics/Nlr-zp.jpeg?updatedAt=1765869301452" alt="GPF Logo">H-SECTION<br> ZP NELLORE<br>zppnlrhsec@gmail.com
+                        <h1 class="custome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            DEPUTY CHEIF EXECUTIVE OFFICER,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ZP, NELLORE </h1>
+
+                            
+                      
                     </div>
                 </div>
                 
@@ -4017,6 +4032,88 @@
             renderTransactions();
         }
         
+        // Render employee details with edit mode support
+        function renderEmployeeDetails() {
+            const employeeDetails = document.getElementById('employeeDetails');
+            
+            if (isEditMode) {
+                // Convert to editable fields
+                employeeDetails.innerHTML = `
+                    <div class="detail-row">
+                        <span class="detail-label">GPF Account No:</span>
+                        <input type="text" class="detail-input" id="editGpfAccountNo" value="${currentEmployee.gpfAccountNo}" readonly>
+                        <span class="edit-indicator"><i class="bi bi-pencil-square"></i></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Employee Name:</span>
+                        <input type="text" class="detail-input" id="editEmployeeName" value="${currentEmployee.name}">
+                        <span class="edit-indicator"><i class="bi bi-pencil-square"></i></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Designation:</span>
+                        <input type="text" class="detail-input" id="editDesignation" value="${currentEmployee.designation}">
+                        <span class="edit-indicator"><i class="bi bi-pencil-square"></i></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Place Of Work:</span>
+                        <input type="text" class="detail-input" id="editPlaceOfWork" value="${currentEmployee.placeOfWork}">
+                        <span class="edit-indicator"><i class="bi bi-pencil-square"></i></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Mandal:</span>
+                        <input type="text" class="detail-input" id="editMandal" value="${currentEmployee.mandal}">
+                        <span class="edit-indicator"><i class="bi bi-pencil-square"></i></span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Financial Year:</span>
+                        <select class="detail-input" id="editFinancialYear">
+                            <option value="2021-2022" ${currentEmployee.financialYear === '2021-2022' ? 'selected' : ''}>2021-2022</option>
+                            <option value="2022-2023" ${currentEmployee.financialYear === '2022-2023' ? 'selected' : ''}>2022-2023</option>
+                            <option value="2023-2024" ${currentEmployee.financialYear === '2023-2024' ? 'selected' : ''}>2023-2024</option>
+                            <option value="2024-2025" ${currentEmployee.financialYear === '2024-2025' ? 'selected' : ''}>2024-2025</option>
+                            <option value="2025-2026" ${currentEmployee.financialYear === '2025-2026' ? 'selected' : ''}>2025-2026</option>
+                            <option value="2026-2027" ${currentEmployee.financialYear === '2026-2027' ? 'selected' : ''}>2026-2027</option>
+                        </select>
+                        <span class="edit-indicator"><i class="bi bi-pencil-square"></i></span>
+                    </div>
+                `;
+                
+                // Add edit indicator to show we're in edit mode
+                employeeDetails.classList.add('edit-mode');
+            } else {
+                // Convert back to display mode
+                employeeDetails.innerHTML = `
+                    <div class="detail-row">
+                        <span class="detail-label">GPF Account No:</span>
+                        <span class="detail-value" id="gpfAccountNo">${currentEmployee.gpfAccountNo}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Employee Name:</span>
+                        <span class="detail-value" id="employeeName">${currentEmployee.name}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Designation:</span>
+                        <span class="detail-value" id="designation">${currentEmployee.designation}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Place Of Work:</span>
+                        <span class="detail-value" id="placeOfWork">${currentEmployee.placeOfWork}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Mandal:</span>
+                        <span class="detail-value" id="mandal">${currentEmployee.mandal}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Financial Year:</span>
+                        <span class="detail-value" id="financialYear">${currentEmployee.financialYear}</span>
+                    </div>
+                `;
+                
+                // Remove edit indicator
+                employeeDetails.classList.remove('edit-mode');
+            }
+        }
+        
         // Render transactions
         function renderTransactions() {
             const tbody = document.getElementById('gpfTableBody');
@@ -4228,7 +4325,7 @@
             }
         }
         
-        // Update record
+        // Update record - MODIFIED to include employee details
         function updateRecord() {
             if (!currentEmployee) {
                 showNotification('Please select an employee first', 'error');
@@ -4238,6 +4335,9 @@
             if (!isEditMode) {
                 // Enter edit mode
                 isEditMode = true;
+                
+                // Render employee details as editable
+                renderEmployeeDetails();
                 
                 // If no transactions, create a monthly template
                 if (currentEmployee.transactions.length === 0) {
@@ -4270,14 +4370,24 @@
                     el.style.display = 'none';
                 });
                 
-                showNotification('Edit mode enabled. Update values and click UPDATE RECORD again to save.', 'info');
+                showNotification('Edit mode enabled. Update employee details and values, then click UPDATE RECORD again to save.', 'info');
             } else {
-                // Save changes
+                // Save changes - Save both employee details and transactions
                 isEditMode = false;
+                
+                // Save employee details from form
+                currentEmployee.gpfAccountNo = document.getElementById('editGpfAccountNo').value;
+                currentEmployee.name = document.getElementById('editEmployeeName').value;
+                currentEmployee.designation = document.getElementById('editDesignation').value;
+                currentEmployee.placeOfWork = document.getElementById('editPlaceOfWork').value;
+                currentEmployee.mandal = document.getElementById('editMandal').value;
+                currentEmployee.financialYear = document.getElementById('editFinancialYear').value;
                 
                 // Final calculation before saving
                 calculateCB();
                 
+                // Render employee details back to display mode
+                renderEmployeeDetails();
                 renderTransactions();
                 
                 // Update in storage
@@ -4292,10 +4402,12 @@
                     el.style.display = 'inline-block';
                 });
                 
-                showNotification('Record updated successfully!', 'success');
+                showNotification('Employee details and transactions updated successfully!', 'success');
                 
-                // Update dashboard stats
+                // Update dashboard stats and employee selects
                 updateDashboardStats();
+                populateEmployeeSelects();
+                populateMandalSelects();
             }
         }
         
@@ -4311,6 +4423,14 @@
                 return;
             }
             
+            // Save employee details from form
+            currentEmployee.gpfAccountNo = document.getElementById('editGpfAccountNo').value;
+            currentEmployee.name = document.getElementById('editEmployeeName').value;
+            currentEmployee.designation = document.getElementById('editDesignation').value;
+            currentEmployee.placeOfWork = document.getElementById('editPlaceOfWork').value;
+            currentEmployee.mandal = document.getElementById('editMandal').value;
+            currentEmployee.financialYear = document.getElementById('editFinancialYear').value;
+            
             // Save the current state without exiting edit mode
             calculateCB();
             
@@ -4321,10 +4441,12 @@
                 localStorage.setItem('gpfEmployees', JSON.stringify(employees));
             }
             
-            showNotification('Record saved successfully! You can continue editing.', 'success');
+            showNotification('Employee details and transactions saved successfully! You can continue editing.', 'success');
             
-            // Update dashboard stats
+            // Update dashboard stats and employee selects
             updateDashboardStats();
+            populateEmployeeSelects();
+            populateMandalSelects();
         }
         
         // Export to Excel - UPDATED VERSION
