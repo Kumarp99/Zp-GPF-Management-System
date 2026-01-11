@@ -35,6 +35,7 @@
             background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             padding: 0.5rem 1rem;
+            
         }
         
         .navbar-brand {
@@ -66,17 +67,22 @@
             border: none;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-
-        .size{
-            font-size: 10px;
+        .dim{
+            height: 20px;
+            width: 20px;
         }
 
+        .size{
+            font-size: 12px;
+            font-weight:bold;
+        }
+        
         .s2{
-            font-size: 6px;
+            font-size: 12px;
         }
         
         .s3{
-            font-size: 4;
+            font-size: 12px;
         }
 
         .h1{
@@ -88,17 +94,48 @@
         }
         
         .small{
-            font-size: 2px;
+             position: fixed !important;
+                bottom: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                text-align: center !important;
+                padding: 10px !important;
+                font-size: 9px !important;
+                color: #666 !important;
+                z-index: 1000 !important;
             
         }
         .custome{
-            
             font-size: 12px;
             font-weight: bold;
             text-align: center;
         }
 
+        /* Home Styles */
+        .Home-container {
+            padding: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
         
+        .Home-header {
+            background: linear-gradient(to right, var(--accent-color), white);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .Home-header h1 {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .Home-header p {
+            color: var(--dark-text);
+            margin-bottom: 0;
+        }
 
         /* Dashboard Styles */
         .dashboard-container {
@@ -766,6 +803,163 @@
         .size3 {
             font-size: 14px;
         }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: 10px;
+            }
+            
+            .stats-card {
+                margin-bottom: 15px;
+            }
+            
+            .navbar-brand {
+                font-size: 14px;
+            }
+            
+            .navbar-brand img {
+                height: 35px;
+            }
+            
+            .welcome-section h1 {
+                font-size: 28px;
+            }
+            
+            .welcome-section p {
+                font-size: 16px;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                font-family: Arial, sans-serif;
+                margin: 10mm;
+                font-size: 10px;
+            }
+            
+            /* Hide elements that shouldn't be printed */
+            .no-print {
+                display: none !important;
+            }
+            
+            .report-filters {
+                display: none !important;
+            }
+            
+            .report-actions {
+                display: none !important;
+            }
+            
+            .print-footer {
+                display: none !important;
+            }
+            
+            /* Show print header */
+            .print-header {
+                display: block !important;
+                visibility: visible !important;
+                text-align: center;
+                margin-bottom: 15px;
+                padding: 10px;
+                border-bottom: 2px solid #4a7ca7;
+            }
+            
+            .print-header h1 {
+                font-size: 14px !important;
+                font-weight: bold !important;
+                margin-bottom: 5px !important;
+                color: #4a7ca7 !important;
+            }
+            
+            .print-header h2 {
+                font-size: 10px !important;
+                margin-bottom: 0 !important;
+                color: #6c9bd2 !important;
+            }
+            
+            /* Show navbar in print */
+            .navbar {
+                display: flex !important;
+                background: linear-gradient(to right, #4a7ca7, #6c9bd2) !important;
+                color: white !important;
+                padding: 10px !important;
+                margin-bottom: 10px !important;
+                align-items: center !important;
+            }
+            
+            .navbar-brand {
+                display: flex !important;
+                align-items: center !important;
+                color: white !important;
+                font-weight: bold !important;
+            }
+            
+            .navbar-brand img {
+                height: 40px !important;
+                margin-right: 10px !important;
+                border-radius: 50% !important;
+            }
+            
+            /* Add print title */
+            .print-title {
+                display: block !important;
+                text-align: center;
+                margin-bottom: 15px;
+                font-size: 12px;
+                font-weight: bold;
+            }
+            
+            /* Style report table for printing */
+            .report-table {
+                width: 100% !important;
+                border-collapse: collapse !important;
+                margin-bottom: 15px !important;
+                font-size: 10px !important;
+            }
+            
+            .report-table th {
+                background-color: #4a7ca7 !important;
+                color: white !important;
+                border: 1px solid #ddd !important;
+                padding: 5px !important;
+                text-align: left !important;
+                font-weight: bold !important;
+            }
+            
+            .report-table td {
+                border: 1px solid #ddd !important;
+                padding: 5px !important;
+            }
+            
+            .report-table td:nth-child(n+3) {
+                text-align: right !important;
+            }
+            
+            .total-row {
+                background-color: #f5f8fc !important;
+                font-weight: bold !important;
+            }
+            
+            .total-row td {
+                border-top: 2px solid #4a7ca7 !important;
+            }
+            
+            /* Add print footer */
+            body::after {
+                content: "Generated on: " + new Date().toLocaleDateString('en-IN', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                display: block;
+                text-align: center;
+                margin-top: 20px;
+                font-size: 9px;
+                color: #666;
+            }
+        }
     </style>
 </head>
 <body>
@@ -782,7 +976,12 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#" onclick="showPage('dashboard')">
+                        <a class="nav-link " href="#" onclick="showPage('Home')">
+                            <i class="bi bi-house-door"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#" onclick="showPage('dashboard')">
                             <i class="bi bi-speedometer2"></i> Dashboard
                         </a>
                     </li>
@@ -822,16 +1021,84 @@
         </div>
     </nav>
 
+    
+
+    <!-- Home Page -->
+     <div>
+    <div id="Home-page" class="page-content  active">
+        <div class="Home-container ">
+            <div class="welcome-section">
+    <h1>WELCOME TO ZILLA PRAJA PARISHAD S.P.S.R NELLORE</h1>
+    <p>Manage employee provident fund records efficiently and generate comprehensive reports with ease.</p>
+    <marquee  loop="infinite">Deputy Cheif Executive Officer, ZP Office Podalkur Road Nellore </marquee>
+    
+    <!-- IMAGE CAROUSEL -->
+    <div id="welcomeCarousel" class="carousel slide ," data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://ik.imagekit.io/htkonwcyl/pics/h.jpeg?updatedAt=1768120186932" class="d-block img-fluid" style="object-fit: cover;" alt="ZP Office Building">
+            </div>
+            <div class="carousel-item">
+                <img src="https://ik.imagekit.io/htkonwcyl/pics/Nlr-zp.jpeg?updatedAt=1765869301452" class="d-block img-fluid" style="object-fit: cover;"   alt="ZP Meeting Hall">
+            </div>
+            <div class="carousel-item">
+                <img src="https://ik.imagekit.io/htkonwcyl/pics/Nlr-zp.jpeg?updatedAt=1765869301452" class="d-block img-fluid" style="object-fit: cover;" alt="ZP Office Outside">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#welcomeCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#welcomeCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+    
+    
+</div>
+            
+        </div>
+    </div>
+    </div>
+
+
+    
     <!-- Dashboard Page -->
-    <div id="dashboard-page" class="page-content active">
+     <div>
+    <div id="dashboard-page" class="page-content ">
         <div class="dashboard-container">
             <div class="welcome-section">
-                <h1>WELCOME TO ZILLA PRAJA PARISHAD S.P.S.R NELLORE</h1>
-                <p>Manage employee provident fund records efficiently and generate comprehensive reports with ease.</p>
-                <button class="btn btn-light btn-lg" onclick="showPage('employees')">
-                    <i class="bi bi-person-plus"></i> Add New Employee
-                </button>
+    <h1>WELCOME TO ZILLA PRAJA PARISHAD S.P.S.R NELLORE</h1>
+    <p>Manage employee provident fund records efficiently and generate comprehensive reports with ease.</p>
+    
+    <!-- IMAGE CAROUSEL -->
+    <div id="welcomeCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://ik.imagekit.io/htkonwcyl/pics/Nlr-zp.jpeg?updatedAt=1765869301452" class="d-block img-fluid" style="object-fit: cover;" alt="ZP Office Building">
             </div>
+            <div class="carousel-item ">
+                <img src="https://ik.imagekit.io/htkonwcyl/pics/h.jpeg?updatedAt=1768120186932" class="d-block img-fluid" style="object-fit: cover;" alt="ZP Meeting Hall">
+            </div>
+            <div class="carousel-item">
+                <img src="https://ik.imagekit.io/htkonwcyl/pics/Nlr-zp.jpeg?updatedAt=1765869301452" class="d-block img-fluid" style="object-fit: cover;" alt="ZP Office Outside">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#welcomeCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#welcomeCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+    
+    <button class="btn btn-light btn-lg mt-4" onclick="showPage('employees')">
+        <i class="bi bi-person-plus"></i> Add New Employee
+    </button>
+</div>
+
+            
+        
+    
             
             <div class="row">
                 <div class="col-md-3">
@@ -883,7 +1150,6 @@
                                 </div>
                                 <div class="activity-content">
                                     <h5>New Employee Added</h5>
-                                    
                                 </div>
                                 <div class="activity-time">2 hours ago</div>
                             </div>
@@ -893,7 +1159,6 @@
                                 </div>
                                 <div class="activity-content">
                                     <h5>Record Updated</h5>
-                                    
                                 </div>
                                 <div class="activity-time">5 hours ago</div>
                             </div>
@@ -903,7 +1168,6 @@
                                 </div>
                                 <div class="activity-content">
                                     <h5>Report Generated</h5>
-                                    
                                 </div>
                                 <div class="activity-time">Yesterday</div>
                             </div>
@@ -932,6 +1196,7 @@
             </div>
         </div>
     </div>
+    </div>
 
     <!-- Employees Page -->
     <div id="employees-page" class="page-content">
@@ -940,13 +1205,17 @@
         <div class="main-container">
             <!-- Header Section -->
             <div class="header-section no-print">
-                <img src="https://ik.imagekit.io/htkonwcyl/pics/Emblem_of_Andhra_Pradesh_before_2014.svg.png?updatedAt=1765727491775" alt="GPF Logo" class="logo">
+                <img src="https://ik.imagekit.io/htkonwcyl/pics/Emblem_of_Andhra_Pradesh_before_2014.svg.png?updatedAt=1765727491775"  alt="GPF Logo" class="logo">
                 <h1>ZP PROVIDENT FUND</h1>
                 <h2>ANDHRA PRADESH, SPSR NELLORE DISTRICT</h2>
             </div>
             
+            
+
             <!-- Employee Selection (shown when no employee is selected) -->
-            <div id="employeeSelection" class="employee-details">
+            
+            <div id="employeeSelection" class="employee-details ">
+           
                 <div class="text-center mb-3">
                     <button class="btn-custom btn-primary-custom" onclick="showNewEmployeeModal()">
                         <i class="bi bi-person-plus"></i> ADD NEW EMPLOYEE
@@ -961,10 +1230,18 @@
                         <i class="bi bi-search"></i> SEARCH EMPLOYEE
                     </button>
                 </div>
+
+                <div>
+                <img src="https://ik.imagekit.io/htkonwcyl/pics/Nlr-zp.jpeg?updatedAt=1765869301452" class="d-block img-fluid" style="object-fit: cover;"  alt="ZP Office Building">
+            </div>
             </div>
             
             <!-- Employee Details (shown when employee is selected) -->
             <div id="employeeDetails" class="employee-details" style="display: none;">
+                <div class="detail-row">
+                    <span class="detail-label">Employee ID:</span>
+                    <span class="detail-value" id="employeeId">-</span>
+                </div>
                 <div class="detail-row">
                     <span class="detail-label">GPF Account No:</span>
                     <span class="detail-value" id="gpfAccountNo">-</span>
@@ -999,12 +1276,12 @@
                 <table class="gpf-table" id="gpfTable">
                     <thead>
                         <tr>
-                            <th style="width: 15%">MONTH</th>
-                            <th style="width: 16%">OB</th>
-                            <th style="width: 16%">SUBSCRIPTION</th>
-                            <th style="width: 16%">DA + PF RECOVERY</th>
-                            <th style="width: 16%">WITHDRAWAL</th>
-                            <th style="width: 21%">CB</th>
+                            <th style="width: 12%">MONTH</th>
+                            <th style="width: 12%">OB</th>
+                            <th style="width: 12%">SUBSCRIPTION</th>
+                            <th style="width: 14%">DA + PF RECOVERY</th>
+                            <th style="width: 12%">WITHDRAWAL</th>
+                            <th style="width: 12%">CB</th>
                         </tr>
                     </thead>
                     <tbody id="gpfTableBody">
@@ -1025,11 +1302,11 @@
                     <table class="summary-table" id="summaryTable">
                         <thead>
                             <tr>
-                                <th style="width: 30% "  >DESCRIPTION</th>
+                                <th style="width: 30%">DESCRIPTION</th>
                                 <th style="width: 30%">AMOUNT</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody style="font-size:small;">
                             <tr>
                                 <td>Opening Balance</td>
                                 <td id="totalOB">0</td>
@@ -1051,8 +1328,8 @@
                                 <td id="cumulative">0</td>
                             </tr>
                             <tr>
-                                <td>Interest </td>
-                                <td id="interest">0</td>
+                                <td>Total Interest Earned</td>
+                                <td id="totalInterest">0</td>
                             </tr>
                             <tr>
                                 <td>Gross </td>
@@ -1416,7 +1693,7 @@
                             <ol>
                                 <li>Click on "ADD NEW EMPLOYEE" button</li>
                                 <li>Fill in the required employee details</li>
-                                <li>Set the opening balance for the employee's GPF account</li>
+                                <li>Set the opening balance for employee's GPF account</li>
                                 <li>Click "Save Employee" to add the employee to the system</li>
                             </ol>
                         </div>
@@ -1495,6 +1772,7 @@
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">GPF Account No</label>
                                 <input type="text" class="form-control" id="newGpfAccountNo" required>
+                                <small class="text-muted">Note: Multiple employees can have the same GPF Account No in different Financial Years.</small>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Employee Name</label>
@@ -1557,7 +1835,7 @@
 
     <!-- Search Employee Modal -->
     <div class="modal fade" id="searchEmployeeModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Search Employee</h5>
@@ -1584,15 +1862,17 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-   
     <script>
         // Data storage
         let employees = JSON.parse(localStorage.getItem('gpfEmployees')) || [];
         let currentEmployee = null;
         let isEditMode = false;
         let calculationTimeout = null;
-        let searchedEmployee = null;
+        let searchedEmployees = []; // Changed from single employee to array
         let selectedMonth = null;
+        
+        // Fixed interest rate as percentage
+        const INTEREST_RATE = 7.1; // 7.1%
         
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
@@ -1640,7 +1920,7 @@
                 }
             });
             
-            document.getElementById('totalBalance').textContent = '₹' + totalBalance.toLocaleString('en-IN');
+            document.getElementById('totalBalance').textContent = '₹' + formatIndianCurrency(totalBalance);
             
             // Set current financial year
             const currentMonth = new Date().getMonth();
@@ -1656,6 +1936,32 @@
             document.getElementById('currentYear').textContent = financialYear;
         }
         
+        // Format number as Indian currency (proper Indian numbering system) - ALWAYS ROUND FIGURE
+        function formatIndianCurrency(num) {
+            // Ensure we're working with a rounded whole number
+            const roundedNum = Math.round(num);
+            const numStr = roundedNum.toString();
+            let result = '';
+            let count = 0;
+            
+            // Process from right to left
+            for (let i = numStr.length - 1; i >= 0; i--) {
+                result = numStr[i] + result;
+                count++;
+                
+                // Add comma after first 3 digits from right
+                if (count === 3 && i > 0) {
+                    result = ',' + result;
+                } 
+                // Add comma after every 2 digits from right after the first 3 digits
+                else if (count > 3 && (count - 3) % 2 === 0 && i > 0) {
+                    result = ',' + result;
+                }
+            }
+            
+            return result;
+        }
+        
         // Populate employee selects in reports
         function populateEmployeeSelects() {
             const summarySelect = document.getElementById('summaryEmployeeSelect');
@@ -1664,7 +1970,7 @@
             employees.forEach(emp => {
                 const option = document.createElement('option');
                 option.value = emp.id;
-                option.textContent = `${emp.gpfAccountNo} - ${emp.name}`;
+                option.textContent = `ID:${emp.id} - ${emp.gpfAccountNo} (${emp.financialYear}) - ${emp.name}`;
                 summarySelect.appendChild(option);
             });
         }
@@ -1769,6 +2075,7 @@
                 <table class="report-table">
                     <thead>
                         <tr>
+                            <th>Employee ID</th>
                             <th>GPF Account No</th>
                             <th>Employee Name</th>
                             <th>Designation</th>
@@ -1796,15 +2103,16 @@
                 if (monthTransaction) {
                     tableHTML += `
                         <tr>
+                            <td>${emp.id}</td>
                             <td>${emp.gpfAccountNo}</td>
                             <td>${emp.name}</td>
                             <td>${emp.designation}</td>
                             <td>${emp.mandal}</td>
-                            <td>${monthTransaction.ob.toLocaleString('en-IN')}</td>
-                            <td>${monthTransaction.subscription.toLocaleString('en-IN')}</td>
-                            <td>${monthTransaction.recovery.toLocaleString('en-IN')}</td>
-                            <td>${monthTransaction.loan.toLocaleString('en-IN')}</td>
-                            <td>${monthTransaction.cb.toLocaleString('en-IN')}</td>
+                            <td>${formatIndianCurrency(monthTransaction.ob)}</td>
+                            <td>${formatIndianCurrency(monthTransaction.subscription)}</td>
+                            <td>${formatIndianCurrency(monthTransaction.recovery)}</td>
+                            <td>${formatIndianCurrency(monthTransaction.loan)}</td>
+                            <td>${formatIndianCurrency(monthTransaction.cb)}</td>
                         </tr>
                     `;
                     
@@ -1817,6 +2125,7 @@
                     // Employee has no transaction for this month
                     tableHTML += `
                         <tr>
+                            <td>${emp.id}</td>
                             <td>${emp.gpfAccountNo}</td>
                             <td>${emp.name}</td>
                             <td>${emp.designation}</td>
@@ -1835,12 +2144,12 @@
                     </tbody>
                     <tfoot>
                         <tr class="total-row">
-                            <td colspan="4">TOTAL</td>
-                            <td>${totalOB.toLocaleString('en-IN')}</td>
-                            <td>${totalSubscription.toLocaleString('en-IN')}</td>
-                            <td>${totalDA.toLocaleString('en-IN')}</td>
-                            <td>${totalWithdrawal.toLocaleString('en-IN')}</td>
-                            <td>${totalCB.toLocaleString('en-IN')}</td>
+                            <td colspan="5">TOTAL</td>
+                            <td>${formatIndianCurrency(totalOB)}</td>
+                            <td>${formatIndianCurrency(totalSubscription)}</td>
+                            <td>${formatIndianCurrency(totalDA)}</td>
+                            <td>${formatIndianCurrency(totalWithdrawal)}</td>
+                            <td>${formatIndianCurrency(totalCB)}</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -1880,6 +2189,7 @@
                     <table class="report-table">
                         <thead>
                             <tr>
+                                <th>Employee ID</th>
                                 <th>GPF Account No</th>
                                 <th>Employee Name</th>
                                 <th>Mandal</th>
@@ -1887,7 +2197,7 @@
                                 <th>Total Subscription</th>
                                 <th>Total DA + PF Recovery</th>
                                 <th>Total Withdrawal</th>
-                                <th>Interest (7.1%)</th>
+                                <th>Total Interest Earned</th>
                                 <th>Closing Balance</th>
                             </tr>
                         </thead>
@@ -1906,15 +2216,16 @@
                     
                     tableHTML += `
                         <tr>
+                            <td>${emp.id}</td>
                             <td>${emp.gpfAccountNo}</td>
                             <td>${emp.name}</td>
                             <td>${emp.mandal}</td>
-                            <td>${summary.totalOB.toLocaleString('en-IN')}</td>
-                            <td>${summary.totalSubscription.toLocaleString('en-IN')}</td>
-                            <td>${summary.totalDA.toLocaleString('en-IN')}</td>
-                            <td>${summary.totalLoan.toLocaleString('en-IN')}</td>
-                            <td>${summary.interest.toLocaleString('en-IN')}</td>
-                            <td>${summary.closingBalance.toLocaleString('en-IN')}</td>
+                            <td>${formatIndianCurrency(summary.totalOB)}</td>
+                            <td>${formatIndianCurrency(summary.totalSubscription)}</td>
+                            <td>${formatIndianCurrency(summary.totalDA)}</td>
+                            <td>${formatIndianCurrency(summary.totalLoan)}</td>
+                            <td>${formatIndianCurrency(summary.totalInterest)}</td>
+                            <td>${formatIndianCurrency(summary.closingBalance)}</td>
                         </tr>
                     `;
                     
@@ -1922,7 +2233,7 @@
                     totalSubscription += summary.totalSubscription;
                     totalDA += summary.totalDA;
                     totalWithdrawal += summary.totalLoan;
-                    totalInterest += summary.interest;
+                    totalInterest += summary.totalInterest;
                     totalCB += summary.closingBalance;
                 });
                 
@@ -1930,13 +2241,13 @@
                         </tbody>
                         <tfoot>
                             <tr class="total-row">
-                                <td colspan="3">TOTAL</td>
-                                <td>${totalOB.toLocaleString('en-IN')}</td>
-                                <td>${totalSubscription.toLocaleString('en-IN')}</td>
-                                <td>${totalDA.toLocaleString('en-IN')}</td>
-                                <td>${totalWithdrawal.toLocaleString('en-IN')}</td>
-                                <td>${totalInterest.toLocaleString('en-IN')}</td>
-                                <td>${totalCB.toLocaleString('en-IN')}</td>
+                                <td colspan="4">TOTAL</td>
+                                <td>${formatIndianCurrency(totalOB)}</td>
+                                <td>${formatIndianCurrency(totalSubscription)}</td>
+                                <td>${formatIndianCurrency(totalDA)}</td>
+                                <td>${formatIndianCurrency(totalWithdrawal)}</td>
+                                <td>${formatIndianCurrency(totalInterest)}</td>
+                                <td>${formatIndianCurrency(totalCB)}</td>
                             </tr>
                         </tfoot>
                     </table>
@@ -1949,6 +2260,7 @@
                     <table class="report-table">
                         <thead>
                             <tr>
+                                <th>Employee ID</th>
                                 <th>GPF Account No</th>
                                 <th>Employee Name</th>
                                 <th>Mandal</th>
@@ -1968,21 +2280,23 @@
                         emp.transactions.forEach(trans => {
                             tableHTML += `
                                 <tr>
+                                    <td>${emp.id}</td>
                                     <td>${emp.gpfAccountNo}</td>
                                     <td>${emp.name}</td>
                                     <td>${emp.mandal}</td>
                                     <td>${trans.month}</td>
-                                    <td>${trans.ob.toLocaleString('en-IN')}</td>
-                                    <td>${trans.subscription.toLocaleString('en-IN')}</td>
-                                    <td>${trans.recovery.toLocaleString('en-IN')}</td>
-                                    <td>${trans.loan.toLocaleString('en-IN')}</td>
-                                    <td>${trans.cb.toLocaleString('en-IN')}</td>
+                                    <td>${formatIndianCurrency(trans.ob)}</td>
+                                    <td>${formatIndianCurrency(trans.subscription)}</td>
+                                    <td>${formatIndianCurrency(trans.recovery)}</td>
+                                    <td>${formatIndianCurrency(trans.loan)}</td>
+                                    <td>${formatIndianCurrency(trans.cb)}</td>
                                 </tr>
                             `;
                         });
                     } else {
                         tableHTML += `
                             <tr>
+                                <td>${emp.id}</td>
                                 <td>${emp.gpfAccountNo}</td>
                                 <td>${emp.name}</td>
                                 <td>${emp.mandal}</td>
@@ -2032,6 +2346,7 @@
                     <table class="report-table">
                         <thead>
                             <tr>
+                                <th>Employee ID</th>
                                 <th>GPF Account No</th>
                                 <th>Employee Name</th>
                                 <th>Designation</th>
@@ -2041,7 +2356,7 @@
                                 <th>Total Subscription</th>
                                 <th>Total DA + PF Recovery</th>
                                 <th>Total Withdrawal</th>
-                                <th>Interest (7.1%)</th>
+                                <th>Total Interest Earned</th>
                                 <th>Closing Balance</th>
                             </tr>
                         </thead>
@@ -2060,17 +2375,18 @@
                     
                     tableHTML += `
                         <tr>
+                            <td>${emp.id}</td>
                             <td>${emp.gpfAccountNo}</td>
                             <td>${emp.name}</td>
                             <td>${emp.designation}</td>
                             <td>${emp.mandal}</td>
                             <td>${emp.placeOfWork}</td>
-                            <td>${summary.totalOB.toLocaleString('en-IN')}</td>
-                            <td>${summary.totalSubscription.toLocaleString('en-IN')}</td>
-                            <td>${summary.totalDA.toLocaleString('en-IN')}</td>
-                            <td>${summary.totalLoan.toLocaleString('en-IN')}</td>
-                            <td>${summary.interest.toLocaleString('en-IN')}</td>
-                            <td>${summary.closingBalance.toLocaleString('en-IN')}</td>
+                            <td>${formatIndianCurrency(summary.totalOB)}</td>
+                            <td>${formatIndianCurrency(summary.totalSubscription)}</td>
+                            <td>${formatIndianCurrency(summary.totalDA)}</td>
+                            <td>${formatIndianCurrency(summary.totalLoan)}</td>
+                            <td>${formatIndianCurrency(summary.totalInterest)}</td>
+                            <td>${formatIndianCurrency(summary.closingBalance)}</td>
                         </tr>
                     `;
                     
@@ -2078,7 +2394,7 @@
                     totalSubscription += summary.totalSubscription;
                     totalDA += summary.totalDA;
                     totalWithdrawal += summary.totalLoan;
-                    totalInterest += summary.interest;
+                    totalInterest += summary.totalInterest;
                     totalCB += summary.closingBalance;
                 });
                 
@@ -2086,13 +2402,13 @@
                         </tbody>
                         <tfoot>
                             <tr class="total-row">
-                                <td colspan="5">TOTAL</td>
-                                <td>${totalOB.toLocaleString('en-IN')}</td>
-                                <td>${totalSubscription.toLocaleString('en-IN')}</td>
-                                <td>${totalDA.toLocaleString('en-IN')}</td>
-                                <td>${totalWithdrawal.toLocaleString('en-IN')}</td>
-                                <td>${totalInterest.toLocaleString('en-IN')}</td>
-                                <td>${totalCB.toLocaleString('en-IN')}</td>
+                                <td colspan="6">TOTAL</td>
+                                <td>${formatIndianCurrency(totalOB)}</td>
+                                <td>${formatIndianCurrency(totalSubscription)}</td>
+                                <td>${formatIndianCurrency(totalDA)}</td>
+                                <td>${formatIndianCurrency(totalWithdrawal)}</td>
+                                <td>${formatIndianCurrency(totalInterest)}</td>
+                                <td>${formatIndianCurrency(totalCB)}</td>
                             </tr>
                         </tfoot>
                     </table>
@@ -2123,15 +2439,16 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
+                                    <p><strong>Employee ID:</strong> ${employee.id}</p>
                                     <p><strong>GPF Account No:</strong> ${employee.gpfAccountNo}</p>
                                     <p><strong>Employee Name:</strong> ${employee.name}</p>
                                     <p><strong>Designation:</strong> ${employee.designation}</p>
-                                    <p><strong>Mandal:</strong> ${employee.mandal}</p>
                                 </div>
                                 <div class="col-md-6">
+                                    <p><strong>Mandal:</strong> ${employee.mandal}</p>
                                     <p><strong>Place Of Work:</strong> ${employee.placeOfWork}</p>
                                     <p><strong>Financial Year:</strong> ${employee.financialYear}</p>
-                                    <p><strong>Opening Balance:</strong> ${employee.openingBalance.toLocaleString('en-IN')}</p>
+                                    <p><strong>Opening Balance:</strong> ${formatIndianCurrency(employee.openingBalance)}</p>
                                 </div>
                             </div>
                         </div>
@@ -2140,35 +2457,35 @@
                         <table class="table table-sm table-bordered">
                             <tr>
                                 <td width="40%">Opening Balance</td>
-                                <td class="text-end">${summary.totalOB.toLocaleString('en-IN')}</td>
+                                <td class="text-end">${formatIndianCurrency(summary.totalOB)}</td>
                             </tr>
                             <tr>
                                 <td>Total Subscription</td>
-                                <td class="text-end">${summary.totalSubscription.toLocaleString('en-IN')}</td>
+                                <td class="text-end">${formatIndianCurrency(summary.totalSubscription)}</td>
                             </tr>
                             <tr>
                                 <td>Total DA + PF Recovery</td>
-                                <td class="text-end">${summary.totalDA.toLocaleString('en-IN')}</td>
+                                <td class="text-end">${formatIndianCurrency(summary.totalDA)}</td>
                             </tr>
                             <tr>
                                 <td>Total Withdrawal</td>
-                                <td class="text-end">${summary.totalLoan.toLocaleString('en-IN')}</td>
+                                <td class="text-end">${formatIndianCurrency(summary.totalLoan)}</td>
                             </tr>
                             <tr>
                                 <td>Cumulative (Sum of all CB)</td>
-                                <td class="text-end">${summary.cumulative.toLocaleString('en-IN')}</td>
+                                <td class="text-end">${formatIndianCurrency(summary.cumulative)}</td>
                             </tr>
                             <tr>
-                                <td>Interest (7.1% p.a.)</td>
-                                <td class="text-end">${summary.interest.toLocaleString('en-IN')}</td>
+                                <td>Total Interest Earned</td>
+                                <td class="text-end">${formatIndianCurrency(summary.totalInterest)}</td>
                             </tr>
                             <tr>
                                 <td>Gross (OB + Subscription + Interest)</td>
-                                <td class="text-end">${summary.gross.toLocaleString('en-IN')}</td>
+                                <td class="text-end">${formatIndianCurrency(summary.gross)}</td>
                             </tr>
                             <tr class="table-primary">
                                 <td>Closing Balance</td>
-                                <td class="text-end">${summary.closingBalance.toLocaleString('en-IN')}</td>
+                                <td class="text-end">${formatIndianCurrency(summary.closingBalance)}</td>
                             </tr>
                         </table>
                     </div>
@@ -2181,7 +2498,7 @@
             showNotification('Employee summary generated successfully!', 'success');
         }
         
-        // Print Monthly Report - Modified to print from current page with header
+        // Print Monthly Report
         function printMonthlyReport() {
             const financialYear = document.getElementById('reportFinancialYear').value;
             const mandalFilter = document.getElementById('monthlyReportMandal').value;
@@ -2203,7 +2520,7 @@
                     body {
                         font-family: Arial, sans-serif;
                         margin: 10mm;
-                        font-size: 8px;
+                        font-size: 10px;
                     }
                     
                     /* Hide elements that shouldn't be printed */
@@ -2234,7 +2551,7 @@
                     }
                     
                     .print-header h1 {
-                        font-size: 12px !important;
+                        font-size: 14px !important;
                         font-weight: bold !important;
                         margin-bottom: 5px !important;
                         color: #4a7ca7 !important;
@@ -2283,7 +2600,7 @@
                         width: 100% !important;
                         border-collapse: collapse !important;
                         margin-bottom: 15px !important;
-                        font-size: 8px !important;
+                        font-size: 10px !important;
                     }
                     
                     .report-table th {
@@ -2300,7 +2617,7 @@
                         padding: 5px !important;
                     }
                     
-                    .report-table td:nth-child(n+5) {
+                    .report-table td:nth-child(n+6) {
                         text-align: right !important;
                     }
                     
@@ -2358,7 +2675,7 @@
             }, 1000);
         }
         
-        // Print Annual Report - Modified to print from current page with header
+        // Print Annual Report
         function printAnnualReport() {
             const financialYear = document.getElementById('annualReportFinancialYear').value;
             const reportType = document.getElementById('reportType').value;
@@ -2414,7 +2731,7 @@
                     }
                     
                     .print-header h2 {
-                        font-size: 14px !important;
+                        font-size: 10px !important;
                         margin-bottom: 0 !important;
                         color: #6c9bd2 !important;
                     }
@@ -2473,7 +2790,7 @@
                         padding: 5px !important;
                     }
                     
-                    .report-table td:nth-child(n+4) {
+                    .report-table td:nth-child(n+5) {
                         text-align: right !important;
                     }
                     
@@ -2537,6 +2854,15 @@
                         font-size: 9px;
                         color: #666;
                     }
+                    body {
+                        font-family: Arial, sans-serif !important;
+                        margin: 0 !important;
+                        padding: 0 !important;
+                        background: white !important;
+                        color: black !important;
+                        font-size: 10px !important;
+                        
+                    }
                 }
             `;
             
@@ -2573,7 +2899,7 @@
             }, 1000);
         }
         
-        // Print Employee Summary - Modified to print from current page with header
+        // Print Employee Summary
         function printEmployeeSummary() {
             const employeeId = document.getElementById('summaryEmployeeSelect').value;
             const financialYear = document.getElementById('summaryFinancialYear').value;
@@ -2591,7 +2917,7 @@
                     body {
                         font-family: Arial, sans-serif;
                         margin: 10mm;
-                        font-size: 8px;
+                        font-size: 10px;
                     }
                     
                     /* Hide elements that shouldn't be printed */
@@ -2688,7 +3014,7 @@
                         padding: 5px !important;
                     }
                     
-                    .report-table td:nth-child(n+6) {
+                    .report-table td:nth-child(n+7) {
                         text-align: right !important;
                     }
                     
@@ -2788,70 +3114,32 @@
             }, 1000);
         }
         
-        // Print Record - Modified to print from current page with header
-        function printRecord() {
-            if (!currentEmployee) {
-                showNotification('Please select an employee first', 'error');
-                return;
-            }
-            
-            if (isEditMode) {
-                showNotification('Please exit edit mode before printing', 'error');
-                return;
-            }
-            
-            // Create a comprehensive print stylesheet
-            const printStyles = document.createElement('style');
-            printStyles.innerHTML = `
-                @media print {
-                    body {
-                        font-family: Arial, sans-serif;
-                        margin: 10mm;
-                        font-size: 6px;
-                    }
-                    
-                    /* Hide all elements except what we want to print */
-                    body > *:not(.print-container):not(.print-container *) {
-                        display: none !important;
-                    }
-                    
-                    /* Create print container */
-                    .print-container {
-                        display: block !important;
-                        position: relative !important;
-                        width: 100% !important;
-                        height: auto !important;
-                        overflow: visible !important;
-                        background: white !important;
-                        color: black !important;
-                    }
-                    
-                    /* Print header styles */
-                    .print-header {
-                        display: block !important;
-                        visibility: visible !important;
-                        text-align: center !important;
-                        margin-bottom: 10px !important;
-                        padding: 15px !important;
-                        border-bottom: 2px solid #4a7ca7 !important;
-                        page-break-after: avoid !important;
-                    }
-                    
-                    .print-header h1 {
-                        font-size: 8px !important;
-                        font-weight: bold !important;
-                        margin-bottom: 5px !important;
-                        color: #4a7ca7 !important;
-                    }
-                    
-                    .print-header h2 {
-                        font-size: 6px !important;
-                        margin-bottom: 0 !important;
-                        color: #6c9bd2 !important;
-                    }
-                    
-                    /* Print navbar */
-                    .print-navbar {
+        // Print Record (Standard JS - No $ signs)
+function printRecord() {
+    if (!currentEmployee) {
+        showNotification('Please select an employee first', 'error');
+        return;
+    }
+    
+    if (isEditMode) {
+        showNotification('Please exit edit mode before printing', 'error');
+        return;
+    }
+    
+    const employee = currentEmployee;
+    const summary = calculateSummary(employee);
+    
+    // Create print styles
+    const printStyles = document.createElement('style');
+    printStyles.innerHTML = `
+        @media print {
+            body { font-family: Arial, sans-serif; margin: 10mm; font-size: 10px; }
+            body > *:not(.print-container):not(.print-container *) { display: none !important; }
+            .print-container { display: block !important; position: relative !important; width: 100% !important; background: white !important; color: black !important; }
+            .print-header { text-align: center; margin-bottom: 10px; padding: 15px; border-bottom: 2px solid #4a7ca7; }
+            .print-header h1 { font-size: 14px; font-weight: bold; margin-bottom: 5px; color: #4a7ca7; }
+            .print-header h2 { font-size: 10px; margin-bottom: 0; color: #6c9bd2; }
+            .print-navbar {
                         display: flex !important;
                         background: linear-gradient(to right, #4a7ca7, #6c9bd2) !important;
                         color: white !important;
@@ -2867,174 +3155,131 @@
                         color: white !important;
                         font-weight: bold !important;
                     }
-                    
-                    .print-navbar img {
-                        height: 40px !important;
-                        margin-right: 10px !important;
-                        border-radius: 50% !important;
-                    }
-                    
-                    /* Employee details */
-                    .print-details {
-                        margin-bottom: 20px !important;
-                        padding: 15px !important;
-                        background-color: #f5f8fc !important;
-                        border: 1px solid #ddd !important;
-                    }
-                    
-                    .print-detail-row {
-                        display: flex !important;
-                        margin-bottom: 8px !important;
-                        font-size: 8px !important;
-                    }
-                    
-                    .print-detail-label {
-                        font-weight: bold !important;
-                        width: 180px !important;
-                    }
-                    
-                    .print-detail-value {
-                        flex: 1 !important;
-                    }
-                    
-                    /* Summary table */
-                    .print-summary {
-                        margin-top: 10px !important;
-                    }
-                    
-                    .print-summary-table {
-                        width: 100% !important;
-                        border-collapse: collapse !important;
-                        font-size: 8px !important;
-                    }
-                    
-                    .print-summary-table th {
-                        background-color: #4a7ca7 !important;
-                        color: white !important;
-                        border: 1px solid #ddd !important;
-                        padding: 8px !important;
-                        text-align: left !important;
-                        font-weight: bold !important;
-                    }
-                    
-                    .print-summary-table td {
-                        border: 1px solid #ddd !important;
-                        padding: 8px !important;
-                    }
-                    
-                    .print-summary-table td:first-child {
-                        font-weight: bold !important;
-                        width: 60% !important;
-                    }
-                    
-                    .print-summary-table td:last-child {
-                        text-align: right !important;
-                    }
-                    
-                    .print-highlight {
-                        background-color: #f5f8fc !important;
-                        font-weight: bold !important;
-                    }
-                    
-                    /* Print footer */
-                    .print-footer {
-                        position: fixed !important;
-                        bottom: 0 !important;
-                        left: 0 !important;
-                        width: 100% !important;
-                        text-align: center !important;
-                        padding: 10px !important;
-                        font-size: 9px !important;
-                        color: #666 !important;
-                        border-top: 1px solid #ddd !important;
-                    }
-                    
-                    /* Override all other styles */
-                    body {
+            .print-details { width:300px; margin-top:10px; margin-left:199px; margin-bottom: 10px; padding: 3px; background-color: #f5f8fc; border: 1px solid #ddd; }
+            .print-detail-row { display: flex; margin-left:20px; margin-bottom: 6px; font-size: 9px; }
+            .print-detail-label { font-weight: bold; width: 180px; }
+            .print-gpf-table { margin-left:65px; width: 80%; border-collapse: collapse; margin-bottom: 6px; font-size: 10px; }
+            .print-gpf-table th { background-color: #4a7ca7; color: white; border: 1px solid #ddd; padding: 8px; text-align: center; font-weight: bold; }
+            .print-gpf-table td { border: 1px solid #ddd; padding: 5px; }
+            .print-gpf-table td:first-child { text-align: left; font-weight: bold; }
+            .print-gpf-table td:nth-child(n+2) { text-align: right; }
+            .print-gpf-table .total-row { background-color: #f5f8fc; font-weight: bold; }
+            .print-summary-table { width: 80%; margin-left:65px; border-collapse: collapse; font-size: 10px; }
+            .print-summary-table th { background-color: #4a7ca7; color: white; border: 1px solid #ddd; padding: 8px; text-align: left; font-weight: bold; }
+            .print-summary-table td { border: 1px solid #ddd; padding: 5px; }
+            .print-summary-table td:first-child { font-weight: bold; width: 60%; }
+            .print-summary-table td:last-child { text-align: right; }
+            .print-highlight { background-color: #f5f8fc; font-weight: bold; }
+            .print-footer { position: fixed; bottom: 0; left: 0; width: 100%; text-align: center; padding: 9px; font-size: 9px; color: #666; border-top: 1px solid #ddd; z-index: 1000; }
+            body {
                         font-family: Arial, sans-serif !important;
                         margin: 0 !important;
                         padding: 0 !important;
                         background: white !important;
                         color: black !important;
-                        font-size: 6px !important;
+                        font-size: 10px !important;
                     }
-                }
-            `;
-            
-            // Get the summary
-            const summary = calculateSummary(currentEmployee);
-            
-            // Create print container with all content
-            const printContainer = document.createElement('div');
-            printContainer.className = 'print-container';
-            printContainer.innerHTML = `
-                <div class="print-navbar">
-                    <div class="print-navbar-brand">
-                        
-                    </div>
-                </div>
-                
-                <div class="print-header">
-                    
-                </div>
-                
-                <div class="print-details">
-                    
-                    <div class="print-detail-row">
-                        
-                    </div>
-                    <div class="print-detail-row">
-                        
-                    </div>
-                    <div class="print-detail-row">
-                        
-                    </div>
-                    <div class="print-detail-row">
-                        
-                    </div>
-                    <div class="print-detail-row">
-                        
-                    </div>
-                    <div class="print-detail-row">
-                        
-                    </div>
-                    <div class="print-detail-row">
-                        
-                    </div>
-                    <div class="print-detail-row">
-                        
-                    </div>
-                </div>
-                
-                <div class="print-summary">
-                    
-                </div>
-                
-                <div class="print-footer">
-                   
-                </div>
-            `;
-            
-            // Hide all body content
-            document.body.style.display = 'none';
-            
-            // Add print container to body
-            document.body.appendChild(printContainer);
-            document.body.style.display = 'block';
-            
-            // Add print styles to document
-            document.head.appendChild(printStyles);
-            
-            // Trigger print dialog
-            window.print();
-            
-            // Restore original state after printing
-            setTimeout(() => {
-                document.head.removeChild(printStyles);
-                document.body.removeChild(printContainer);
-                document.body.style.display = '';
-            }, 1000);
         }
+    `;
+    
+    // Create print container
+    const printContainer = document.createElement('div');
+    printContainer.className = 'print-container';
+    printContainer.innerHTML = `
+        <div class="print-navbar">
+            <div class="print-navbar-brand">
+                <img src="https://ik.imagekit.io/htkonwcyl/pics/Nlr-zp.jpeg?updatedAt=1765869301452" alt="GPF Logo" height="40" style="border-radius:50%; margin-right:10px;">
+                H-SECTION<br> ZP NELLORE<br>zppnlrhsec@gmail.com
+                <h1 class="custome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    DEPUTY CHEIF EXECUTIVE OFFICER,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ZP, NELLORE </h1>
+            </div>
+        </div>
+        
+        <div class="header-section" style="position:relative; text-align:center; padding:15px; border-bottom:2px solid #4a7ca7;">
+            <img src="https://ik.imagekit.io/htkonwcyl/pics/Emblem_of_Andhra_Pradesh_before_2014.svg.png?updatedAt=1765727491775" alt="GPF Logo" style="position:absolute; left:15px; top:50%; transform:translateY(-50%); width:50px; height:55px; border-radius:50%;">
+            <h1 class="s2" style="font-size:12px; font-weight:bold; margin:0;">ZP PROVIDENT FUND</h1>
+            <h2 class="s3" style="font-size:10px; font-weight:normal; margin:0;">ANDHRA PRADESH, SPSR NELLORE DISTRICT</h2>
+        </div>
+            
+        <div class="print-details" style="margin-top:10px; margin-left:199px; margin-bottom: 10px; padding: 3px; background-color: #f5f8fc; border: 1px solid #ddd; width:300px;">
+            <h6 class="size" style="font-size:12px; font-weight:bold; text-align:center;">Employee Details</h6>
+            <div class="print-detail-row"><span class="print-detail-label">Employee ID:</span><span class="print-detail-value">${employee.id}</span></div>
+            <div class="print-detail-row"><span class="print-detail-label">GPF Account No:</span><span class="print-detail-value">${employee.gpfAccountNo}</span></div>
+            <div class="print-detail-row"><span class="print-detail-label">Employee Name:</span><span class="print-detail-value">${employee.name}</span></div>
+            <div class="print-detail-row"><span class="print-detail-label">Designation:</span><span class="print-detail-value">${employee.designation}</span></div>
+            <div class="print-detail-row"><span class="print-detail-label">Mandal:</span><span class="print-detail-value">${employee.mandal}</span></div>
+            <div class="print-detail-row"><span class="print-detail-label">Place Of Work:</span><span class="print-detail-value">${employee.placeOfWork}</span></div>
+            <div class="print-detail-row"><span class="print-detail-label">Financial Year:</span><span class="print-detail-value">${employee.financialYear}</span></div>
+            <div class="print-detail-row"><span class="print-detail-label">Opening Balance:</span><span class="print-detail-value">${formatIndianCurrency(employee.openingBalance)}</span></div>
+        </div>
+        
+        <div class="print-gpf-section">
+             ${employee.transactions.length > 0 ? `
+                <table class="print-gpf-table" style="margin-left:65px; width: 80%;">
+                    <thead>
+                        <tr>
+                            <th style="width: 12%">MONTH</th><th style="width: 12%">OB</th><th style="width: 12%">SUBSCRIPTION</th><th style="width: 14%">DA + PF RECOVERY</th><th style="width: 12%">WITHDRAWAL</th><th style="width: 12%">CB</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${employee.transactions.map((trans) => `
+                            <tr>
+                                <td class="month-cell">${trans.month}</td>
+                                <td>${formatIndianCurrency(trans.ob)}</td>
+                                <td>${formatIndianCurrency(trans.subscription)}</td>
+                                <td>${formatIndianCurrency(trans.recovery)}</td>
+                                <td>${formatIndianCurrency(trans.loan)}</td>
+                                <td>${formatIndianCurrency(trans.cb)}</td>
+                            </tr>
+                        `).join('')}
+                        <tr class="total-row">
+                            <td class="month-cell">TOTAL</td>
+                            <td>-</td>
+                            <td>${formatIndianCurrency(employee.transactions.reduce((sum, trans) => sum + trans.subscription, 0))}</td>
+                            <td>${formatIndianCurrency(employee.transactions.reduce((sum, trans) => sum + trans.recovery, 0))}</td>
+                            <td>${formatIndianCurrency(employee.transactions.reduce((sum, trans) => sum + trans.loan, 0))}</td>
+                            <td>${formatIndianCurrency(employee.transactions.reduce((sum, trans) => sum + trans.cb, 0))}</td>
+                        </tr>
+                    </tbody>
+                </table>` : '<div style="text-align:center; padding:20px;">No transactions recorded</div>'}
+        </div>
+        
+        <div class="print-summary" style="margin-top: 4px;">
+            <table class="print-summary-table">
+                <tr><td>Opening Balance</td><td>${formatIndianCurrency(summary.totalOB)}</td></tr>
+                <tr><td>Total Subscription</td><td>${formatIndianCurrency(summary.totalSubscription)}</td></tr>
+                <tr><td>Total DA/PF Recovery</td><td>${formatIndianCurrency(summary.totalDA)}</td></tr>
+                <tr><td>Total Withdrawal</td><td>${formatIndianCurrency(summary.totalLoan)}</td></tr>
+                <tr><td>Cumulative</td><td>${formatIndianCurrency(summary.cumulative)}</td></tr>
+                <tr><td>Total Interest Earned</td><td>${formatIndianCurrency(summary.totalInterest)}</td></tr>
+                <tr><td>Gross</td><td>${formatIndianCurrency(summary.gross)}</td></tr>
+                <tr class="print-highlight"><td>Closing Balance</td><td>${formatIndianCurrency(summary.closingBalance)}</td></tr>
+            </table>
+        </div>
+        
+        <div>
+                    <p class="small">Generated on: ${new Date().toLocaleDateString('en-IN', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    })}</p>
+        </div>
+    `;
+    
+    document.body.style.display = 'none';
+    document.body.appendChild(printContainer);
+    document.body.style.display = 'block';
+    document.head.appendChild(printStyles);
+    window.print();
+    
+    setTimeout(() => {
+        document.head.removeChild(printStyles);
+        document.body.removeChild(printContainer);
+        document.body.style.display = '';
+    }, 1000);
+}
         
         // Export Monthly Report to Excel
         function exportMonthlyReportToExcel() {
@@ -3060,6 +3305,7 @@
             
             // Add header row
             excelData.push({
+                'Employee ID': 'Employee ID',
                 'GPF Account No': 'GPF Account No',
                 'Employee Name': 'Employee Name',
                 'Designation': 'Designation',
@@ -3077,28 +3323,30 @@
                 
                 if (monthTransaction) {
                     excelData.push({
+                        'Employee ID': emp.id,
                         'GPF Account No': emp.gpfAccountNo,
                         'Employee Name': emp.name,
                         'Designation': emp.designation,
                         'Mandal': emp.mandal,
-                        'OB': monthTransaction.ob,
-                        'Subscription': monthTransaction.subscription,
-                        'DA + PF Recovery': monthTransaction.recovery,
-                        'Withdrawal': monthTransaction.loan,
-                        'CB': monthTransaction.cb
+                        'OB': Math.round(monthTransaction.ob),
+                        'Subscription': Math.round(monthTransaction.subscription),
+                        'DA + PF Recovery': Math.round(monthTransaction.recovery),
+                        'Withdrawal': Math.round(monthTransaction.loan),
+                        'CB': Math.round(monthTransaction.cb)
                     });
                 } else {
                     // Employee has no transaction for this month
                     excelData.push({
+                        'Employee ID': emp.id,
                         'GPF Account No': emp.gpfAccountNo,
                         'Employee Name': emp.name,
                         'Designation': emp.designation,
                         'Mandal': emp.mandal,
-                        'OB': '-',
-                        'Subscription': '-',
-                        'DA + PF Recovery': '-',
-                        'Withdrawal': '-',
-                        'CB': '-'
+                        'OB': 0,
+                        'Subscription': 0,
+                        'DA + PF Recovery': 0,
+                        'Withdrawal': 0,
+                        'CB': 0
                     });
                 }
             });
@@ -3137,6 +3385,7 @@
             if (reportType === 'summary') {
                 // Summary Report
                 excelData.push({
+                    'Employee ID': 'Employee ID',
                     'GPF Account No': 'GPF Account No',
                     'Employee Name': 'Employee Name',
                     'Mandal': 'Mandal',
@@ -3144,27 +3393,29 @@
                     'Total Subscription': 'Total Subscription',
                     'Total DA + PF Recovery': 'Total DA + PF Recovery',
                     'Total Withdrawal': 'Total Withdrawal',
-                    'Interest (7.1%)': 'Interest (7.1%)',
+                    'Total Interest Earned': 'Total Interest Earned',
                     'Closing Balance': 'Closing Balance'
                 });
                 
                 filteredEmployees.forEach(emp => {
                     const summary = calculateSummary(emp);
                     excelData.push({
+                        'Employee ID': emp.id,
                         'GPF Account No': emp.gpfAccountNo,
                         'Employee Name': emp.name,
                         'Mandal': emp.mandal,
-                        'Opening Balance': summary.totalOB,
-                        'Total Subscription': summary.totalSubscription,
-                        'Total DA + PF Recovery': summary.totalDA,
-                        'Total Withdrawal': summary.totalLoan,
-                        'Interest (7.1%)': summary.interest,
-                        'Closing Balance': summary.closingBalance
+                        'Opening Balance': Math.round(summary.totalOB),
+                        'Total Subscription': Math.round(summary.totalSubscription),
+                        'Total DA + PF Recovery': Math.round(summary.totalDA),
+                        'Total Withdrawal': Math.round(summary.totalLoan),
+                        'Total Interest Earned': Math.round(summary.totalInterest),
+                        'Closing Balance': Math.round(summary.closingBalance)
                     });
                 });
             } else if (reportType === 'detailed') {
                 // Detailed Report
                 excelData.push({
+                    'Employee ID': 'Employee ID',
                     'GPF Account No': 'GPF Account No',
                     'Employee Name': 'Employee Name',
                     'Mandal': 'Mandal',
@@ -3180,28 +3431,30 @@
                     if (emp.transactions.length > 0) {
                         emp.transactions.forEach(trans => {
                             excelData.push({
+                                'Employee ID': emp.id,
                                 'GPF Account No': emp.gpfAccountNo,
                                 'Employee Name': emp.name,
                                 'Mandal': emp.mandal,
                                 'Month': trans.month,
-                                'OB': trans.ob,
-                                'Subscription': trans.subscription,
-                                'DA + PF Recovery': trans.recovery,
-                                'Withdrawal': trans.loan,
-                                'CB': trans.cb
+                                'OB': Math.round(trans.ob),
+                                'Subscription': Math.round(trans.subscription),
+                                'DA + PF Recovery': Math.round(trans.recovery),
+                                'Withdrawal': Math.round(trans.loan),
+                                'CB': Math.round(trans.cb)
                             });
                         });
                     } else {
                         excelData.push({
+                            'Employee ID': emp.id,
                             'GPF Account No': emp.gpfAccountNo,
                             'Employee Name': emp.name,
                             'Mandal': emp.mandal,
                             'Month': 'No transactions',
-                            'OB': '-',
-                            'Subscription': '-',
-                            'DA + PF Recovery': '-',
-                            'Withdrawal': '-',
-                            'CB': '-'
+                            'OB': 0,
+                            'Subscription': 0,
+                            'DA + PF Recovery': 0,
+                            'Withdrawal': 0,
+                            'CB': 0
                         });
                     }
                 });
@@ -3242,32 +3495,40 @@
                 
                 // Add header row
                 excelData.push({
+                    'Employee ID': 'Employee ID',
                     'GPF Account No': 'GPF Account No',
                     'Employee Name': 'Employee Name',
                     'Designation': 'Designation',
                     'Mandal': 'Mandal',
                     'Place Of Work': 'Place Of Work',
                     'Financial Year': 'Financial Year',
-                    'Opening Balance': 'Opening Balance'
+                    'Opening Balance': 'Opening Balance',
+                    'Total Subscription': 'Total Subscription',
+                    'Total DA + PF Recovery': 'Total DA + PF Recovery',
+                    'Total Withdrawal': 'Total Withdrawal',
+                    'Total Interest Earned': 'Total Interest Earned',
+                    'Gross (OB + Subscription + Interest)': 'Gross (OB + Subscription + Interest)',
+                    'Closing Balance': 'Closing Balance'
                 });
                 
                 // Add employee data
                 filteredEmployees.forEach(emp => {
                     const summary = calculateSummary(emp);
                     excelData.push({
+                        'Employee ID': emp.id,
                         'GPF Account No': emp.gpfAccountNo,
                         'Employee Name': emp.name,
                         'Designation': emp.designation,
                         'Mandal': emp.mandal,
                         'Place Of Work': emp.placeOfWork,
                         'Financial Year': emp.financialYear,
-                        'Opening Balance': summary.totalOB,
-                        'Total Subscription': summary.totalSubscription,
-                        'Total DA + PF Recovery': summary.totalDA,
-                        'Total Withdrawal': summary.totalLoan,
-                        'Interest (7.1%)': summary.interest,
-                        'Gross (OB + Subscription + Interest)': summary.gross,
-                        'Closing Balance': summary.closingBalance
+                        'Opening Balance': Math.round(summary.totalOB),
+                        'Total Subscription': Math.round(summary.totalSubscription),
+                        'Total DA + PF Recovery': Math.round(summary.totalDA),
+                        'Total Withdrawal': Math.round(summary.totalLoan),
+                        'Total Interest Earned': Math.round(summary.totalInterest),
+                        'Gross (OB + Subscription + Interest)': Math.round(summary.gross),
+                        'Closing Balance': Math.round(summary.closingBalance)
                     });
                 });
                 
@@ -3297,13 +3558,14 @@
                 
                 // Sheet 1: Employee Details
                 const detailsData = [
+                    { 'Field': 'Employee ID', 'Value': employee.id },
                     { 'Field': 'GPF Account No', 'Value': employee.gpfAccountNo },
                     { 'Field': 'Employee Name', 'Value': employee.name },
                     { 'Field': 'Designation', 'Value': employee.designation },
                     { 'Field': 'Mandal', 'Value': employee.mandal },
                     { 'Field': 'Place Of Work', 'Value': employee.placeOfWork },
                     { 'Field': 'Financial Year', 'Value': employee.financialYear },
-                    { 'Field': 'Opening Balance', 'Value': employee.openingBalance }
+                    { 'Field': 'Opening Balance', 'Value': Math.round(employee.openingBalance) }
                 ];
                 
                 const wsDetails = XLSX.utils.json_to_sheet(detailsData);
@@ -3325,21 +3587,21 @@
                     employee.transactions.forEach(trans => {
                         transactionsData.push({
                             'Month': trans.month,
-                            'OB': trans.ob,
-                            'Subscription': trans.subscription,
-                            'DA + PF Recovery': trans.recovery,
-                            'Withdrawal': trans.loan,
-                            'CB': trans.cb
+                            'OB': Math.round(trans.ob),
+                            'Subscription': Math.round(trans.subscription),
+                            'DA + PF Recovery': Math.round(trans.recovery),
+                            'Withdrawal': Math.round(trans.loan),
+                            'CB': Math.round(trans.cb)
                         });
                     });
                 } else {
                     transactionsData.push({
                         'Month': 'No transactions',
-                        'OB': '-',
-                        'Subscription': '-',
-                        'DA + PF Recovery': '-',
-                        'Withdrawal': '-',
-                        'CB': '-'
+                        'OB': 0,
+                        'Subscription': 0,
+                        'DA + PF Recovery': 0,
+                        'Withdrawal': 0,
+                        'CB': 0
                     });
                 }
                 
@@ -3348,21 +3610,21 @@
                 
                 // Sheet 3: Annual Summary
                 const summaryData = [
-                    { 'Description': 'Opening Balance', 'Amount': summary.totalOB },
-                    { 'Description': 'Total Subscription', 'Amount': summary.totalSubscription },
-                    { 'Description': 'Total DA + PF Recovery', 'Amount': summary.totalDA },
-                    { 'Description': 'Total Withdrawal', 'Amount': summary.totalLoan },
-                    { 'Description': 'Cumulative (Sum of all CB)', 'Amount': summary.cumulative },
-                    { 'Description': 'Interest (7.1% p.a.)', 'Amount': summary.interest },
-                    { 'Description': 'Gross (OB + Subscription + Interest)', 'Amount': summary.gross },
-                    { 'Description': 'Closing Balance', 'Amount': summary.closingBalance }
+                    { 'Description': 'Opening Balance', 'Amount': Math.round(summary.totalOB) },
+                    { 'Description': 'Total Subscription', 'Amount': Math.round(summary.totalSubscription) },
+                    { 'Description': 'Total DA + PF Recovery', 'Amount': Math.round(summary.totalDA) },
+                    { 'Description': 'Total Withdrawal', 'Amount': Math.round(summary.totalLoan) },
+                    { 'Description': 'Cumulative (Sum of all CB)', 'Amount': Math.round(summary.cumulative) },
+                    { 'Description': 'Total Interest Earned', 'Amount': Math.round(summary.totalInterest) },
+                    { 'Description': 'Gross (OB + Subscription + Interest)', 'Amount': Math.round(summary.gross) },
+                    { 'Description': 'Closing Balance', 'Amount': Math.round(summary.closingBalance) }
                 ];
                 
                 const wsSummary = XLSX.utils.json_to_sheet(summaryData);
                 XLSX.utils.book_append_sheet(wb, wsSummary, 'Annual Summary');
                 
                 // Generate filename
-                const filename = `Employee_Summary_${employee.gpfAccountNo}_${employee.name}_${financialYear}.xlsx`;
+                const filename = `Employee_Summary_ID${employee.id}_${employee.gpfAccountNo}_${employee.name}_${financialYear}.xlsx`;
                 
                 // Save file
                 XLSX.writeFile(wb, filename);
@@ -3378,39 +3640,89 @@
             modal.show();
         }
         
-        // Save new employee
+        // Save new employee - UPDATED LOGIC TO FIX PERMANENT SAVING ISSUE
         function saveNewEmployee() {
-            const employee = {
-                id: Date.now(),
-                gpfAccountNo: document.getElementById('newGpfAccountNo').value,
-                name: document.getElementById('newEmployeeName').value,
-                designation: document.getElementById('newDesignation').value,
-                placeOfWork: document.getElementById('newPlaceOfWork').value,
-                mandal: document.getElementById('newMandal').value,
-                financialYear: document.getElementById('newFinancialYear').value,
-                openingBalance: parseInt(document.getElementById('newOpeningBalance').value) || 0,
-                transactions: []
-            };
-            
-            // Check for duplicate account number
-            if (employees.find(e => e.gpfAccountNo === employee.gpfAccountNo)) {
-                showNotification('GPF Account Number already exists!', 'error');
+            const gpfNo = document.getElementById('newGpfAccountNo').value.trim();
+            const name = document.getElementById('newEmployeeName').value.trim();
+            const finYear = document.getElementById('newFinancialYear').value;
+            const designation = document.getElementById('newDesignation').value.trim();
+            const placeOfWork = document.getElementById('newPlaceOfWork').value.trim();
+            const mandal = document.getElementById('newMandal').value.trim();
+            const openingBalance = parseInt(document.getElementById('newOpeningBalance').value) || 0;
+
+            // Basic Validation
+            if (!gpfNo || !name || !designation || !placeOfWork || !mandal) {
+                alert("Please fill in all required fields.");
                 return;
             }
+
+            // CRITICAL CHECK: Duplicate GPF + Financial Year
+            // We only block if BOTH GPF Number AND Financial Year are the same.
+            const exactDuplicate = employees.find(
+                e => e.gpfAccountNo === gpfNo && e.financialYear === finYear
+            );
+
+            if (exactDuplicate) {
+                alert(`Record already exists! \nGPF: ${gpfNo}\nYear: ${finYear}\n\nPlease check the "View All Employees" list.`);
+                return; // Stop execution.
+            }
+
+            // CHECK FOR PREVIOUS YEAR TO AUTO-FILL OPENING BALANCE
+            const previousYearRecord = employees.find(
+                e => e.gpfAccountNo === gpfNo && e.financialYear !== finYear
+            );
+
+            let calculatedOpeningBalance = openingBalance;
+
+            if (previousYearRecord) {
+                const summary = calculateSummary(previousYearRecord);
+                // Found a record for a different year. 
+                // Prompt to use last year's closing balance or keep the manual input.
+                const usePrev = confirm(
+                    `Found an existing record for GPF ${gpfNo} in year ${previousYearRecord.financialYear}.\n` +
+                    `Last Year's Closing Balance: ${formatIndianCurrency(summary.closingBalance)}\n\n` +
+                    `Click OK to use this as Opening Balance for ${finYear}.\n` +
+                    `Click Cancel to use your manual input (${formatIndianCurrency(openingBalance)}).`
+                );
+
+                if (usePrev) {
+                    calculatedOpeningBalance = summary.closingBalance;
+                }
+            }
+
+            // CREATE NEW RECORD OBJECT
+            const newEmployee = {
+                id: Date.now(), // CRITICAL: Generate a NEW unique ID for this specific year record
+                gpfAccountNo: gpfNo,
+                name: name,
+                designation: designation,
+                placeOfWork: placeOfWork,
+                mandal: mandal,
+                financialYear: finYear,
+                openingBalance: calculatedOpeningBalance,
+                transactions: [] // Start fresh
+            };
+
+            // Save to array
+            employees.push(newEmployee);
             
-            employees.push(employee);
+            // Save to LocalStorage immediately
             localStorage.setItem('gpfEmployees', JSON.stringify(employees));
-            
+
+            // Close modal
             bootstrap.Modal.getInstance(document.getElementById('newEmployeeModal')).hide();
-            loadEmployee(employee);
-            showNotification('Employee added successfully!', 'success');
+
+            // Load the new employee for editing
+            loadEmployee(newEmployee);
+
+            showNotification(`Record created for ${finYear}. Click "UPDATE RECORD" to add transactions.`, 'success');
             
-            // Update dashboard stats and employee selects
+            // Update UI
             updateDashboardStats();
             populateEmployeeSelects();
             populateMandalSelects();
-        }
-        
+        }   
+                
         // Show employee list
         function showEmployeeList() {
             const listContainer = document.getElementById('employeeList');
@@ -3421,10 +3733,14 @@
                 listContainer.innerHTML = employees.map(emp => `
                     <div class="employee-item">
                         <div class="employee-info" onclick="loadEmployee(${JSON.stringify(emp).replace(/"/g, '&quot;')})">
-                            <strong>${emp.gpfAccountNo}</strong> - ${emp.name}<br>
-                            <small>${emp.designation} | ${emp.mandal} | ${emp.placeOfWork} | ${emp.financialYear}</small>
+                            <strong>ID:${emp.id}</strong> - ${emp.gpfAccountNo} (${emp.financialYear}) - ${emp.name}<br>
+                            <small>${emp.designation} | ${emp.mandal} | ${emp.placeOfWork}</small>
                         </div>
                         <div class="employee-actions">
+                             <!-- Print Button (Standard JS) -->
+                    <button class="btn-icon" onclick="event.stopPropagation(); " title="Print Record">
+                        <i class="bi bi-printer"></i>
+                    </button>
                             <button class="btn-icon delete" onclick="event.stopPropagation(); deleteEmployee(${emp.id})">
                                 <i class="bi bi-trash"></i>
                             </button>
@@ -3441,13 +3757,13 @@
         function showSearchEmployeeModal() {
             document.getElementById('searchGpfAccountNo').value = '';
             document.getElementById('searchResult').innerHTML = '';
-            searchedEmployee = null;
+            searchedEmployees = [];
             
             const modal = new bootstrap.Modal(document.getElementById('searchEmployeeModal'));
             modal.show();
         }
         
-        // Search employee by GPF Account No - Updated to include GPF table
+        // Search employee by GPF Account No - UPDATED TO HANDLE MULTIPLE EMPLOYEES WITH SAME GPF
         function searchEmployeeByGpf() {
             const gpfAccountNo = document.getElementById('searchGpfAccountNo').value.trim();
             
@@ -3456,144 +3772,153 @@
                 return;
             }
             
-            const employee = employees.find(e => e.gpfAccountNo === gpfAccountNo);
+            // Find all employees with this GPF Account No
+            const matchingEmployees = employees.filter(e => e.gpfAccountNo === gpfAccountNo);
             
-            if (!employee) {
+            if (matchingEmployees.length === 0) {
                 document.getElementById('searchResult').innerHTML = `
                     <div class="alert alert-warning">
-                        No employee found with GPF Account No: ${gpfAccountNo}
+                        No employees found with GPF Account No: ${gpfAccountNo}
                     </div>
                 `;
-                searchedEmployee = null;
+                searchedEmployees = [];
                 return;
             }
             
-            searchedEmployee = employee;
+            searchedEmployees = matchingEmployees;
             
-            // Calculate summary values
-            const summary = calculateSummary(employee);
+            // Display all matching employees
+            let resultHTML = `
+                <div class="alert alert-info">
+                    Found ${matchingEmployees.length} employee(s) with GPF Account No: ${gpfAccountNo}
+                </div>
+            `;
             
-            // Display employee details and summary with print button
-            document.getElementById('searchResult').innerHTML = `
-                <div class="card">
-                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-                        <h6 class="mb-0">Employee Details</h6>
-                        <button class="btn btn-sm btn-light" onclick="printSearchEmployee()">
-                            <i class="bi bi-printer"></i> Print
-                        </button>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p><strong>GPF Account No:</strong> ${employee.gpfAccountNo}</p>
-                                <p><strong>Employee Name:</strong> ${employee.name}</p>
-                                <p><strong>Designation:</strong> ${employee.designation}</p>
-                                <p><strong>Mandal:</strong> ${employee.mandal}</p>
+            matchingEmployees.forEach((employee, index) => {
+                const summary = calculateSummary(employee);
+                resultHTML += `
+                    <div class="card mb-3">
+                        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                            <h6 class="mb-0">Employee ${index + 1}: ${employee.name} (${employee.financialYear})</h6>
+                            <button class="btn btn-sm btn-light" onclick="printSearchEmployee(${index})">
+                                <i class="bi bi-printer"></i> Print
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p><strong>Employee ID:</strong> ${employee.id}</p>
+                                    <p><strong>GPF Account No:</strong> ${employee.gpfAccountNo}</p>
+                                    <p><strong>Employee Name:</strong> ${employee.name}</p>
+                                    <p><strong>Designation:</strong> ${employee.designation}</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><strong>Mandal:</strong> ${employee.mandal}</p>
+                                    <p><strong>Place Of Work:</strong> ${employee.placeOfWork}</p>
+                                    <p><strong>Financial Year:</strong> ${employee.financialYear}</p>
+                                    <p><strong>Opening Balance:</strong> ${formatIndianCurrency(employee.openingBalance)}</p>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <p><strong>Place Of Work:</strong> ${employee.placeOfWork}</p>
-                                <p><strong>Financial Year:</strong> ${employee.financialYear}</p>
-                                <p><strong>Opening Balance:</strong> ${employee.openingBalance.toLocaleString('en-IN')}</p>
+                            
+                            <!-- GPF Transactions Table -->
+                            <div class="card mt-3">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0">Monthly GPF Transactions</h6>
+                                </div>
+                                <div class="card-body p-0">
+                                    ${employee.transactions.length > 0 ? `
+                                        <table class="gpf-table">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 12%">MONTH</th>
+                                                    <th style="width: 12%">OB</th>
+                                                    <th style="width: 12%">SUBSCRIPTION</th>
+                                                    <th style="width: 14%">DA + PF RECOVERY</th>
+                                                    <th style="width: 12%">WITHDRAWAL</th>
+                                                    <th style="width: 12%">CB</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                ${employee.transactions.map((trans, index) => `
+                                                    <tr>
+                                                        <td class="month-cell">${trans.month}</td>
+                                                        <td>${formatIndianCurrency(trans.ob)}</td>
+                                                        <td>${formatIndianCurrency(trans.subscription)}</td>
+                                                        <td>${formatIndianCurrency(trans.recovery)}</td>
+                                                        <td>${formatIndianCurrency(trans.loan)}</td>
+                                                        <td>${formatIndianCurrency(trans.cb)}</td>
+                                                    </tr>
+                                                `).join('')}
+                                                <tr class="total-row">
+                                                    <td class="month-cell">TOTAL</td>
+                                                    <td>-</td>
+                                                    <td>${formatIndianCurrency(employee.transactions.reduce((sum, trans) => sum + trans.subscription, 0))}</td>
+                                                    <td>${formatIndianCurrency(employee.transactions.reduce((sum, trans) => sum + trans.recovery, 0))}</td>
+                                                    <td>${formatIndianCurrency(employee.transactions.reduce((sum, trans) => sum + trans.loan, 0))}</td>
+                                                    <td>${formatIndianCurrency(employee.transactions.reduce((sum, trans) => sum + trans.cb, 0))}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    ` : `
+                                        <div class="empty-state">
+                                            <i class="bi bi-inbox"></i>
+                                            <p>No transactions recorded for this employee</p>
+                                        </div>
+                                    `}
+                                </div>
                             </div>
+                            
+                            <h6 class="mt-3 mb-2">Annual Summary</h6>
+                            <table class="table table-sm table-bordered">
+                                <tr>
+                                    <td>Opening Balance</td>
+                                    <td class="text-end">${formatIndianCurrency(summary.totalOB)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total Subscription</td>
+                                    <td class="text-end">${formatIndianCurrency(summary.totalSubscription)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total DA + PF Recovery</td>
+                                    <td class="text-end">${formatIndianCurrency(summary.totalDA)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total Withdrawal</td>
+                                    <td class="text-end">${formatIndianCurrency(summary.totalLoan)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Cumulative (Sum of all CB)</td>
+                                    <td class="text-end">${formatIndianCurrency(summary.cumulative)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Total Interest Earned</td>
+                                    <td class="text-end">${formatIndianCurrency(summary.totalInterest)}</td>
+                                </tr>
+                                <tr>
+                                    <td>Gross (OB + Subscription + Interest)</td>
+                                    <td class="text-end">${formatIndianCurrency(summary.gross)}</td>
+                                </tr>
+                                <tr class="table-primary">
+                                    <td>Closing Balance</td>
+                                    <td class="text-end">${formatIndianCurrency(summary.closingBalance)}</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
-                    
-                    <!-- GPF Transactions Table -->
-                <div class="card mt-3">
-                    <div class="card-header bg-primary text-white">
-                        <h6 class="mb-0">Monthly GPF Transactions</h6>
-                    </div>
-                    <div class="card-body p-0">
-                        ${employee.transactions.length > 0 ? `
-                            <table class="gpf-table">
-                                <thead>
-                                            <tr>
-                                                <th style="width: 15%">MONTH</th>
-                                                <th style="width: 16%">OB</th>
-                                                <th style="width: 16%">SUBSCRIPTION</th>
-                                                <th style="width: 16%">DA + PF RECOVERY</th>
-                                                <th style="width: 16%">WITHDRAWAL</th>
-                                                <th style="width: 21%">CB</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            ${employee.transactions.map((trans, index) => `
-                                                <tr>
-                                                            <td class="month-cell">${trans.month}</td>
-                                                            <td>${trans.ob.toLocaleString('en-IN')}</td>
-                                                            <td>${trans.subscription.toLocaleString('en-IN')}</td>
-                                                            <td>${trans.recovery.toLocaleString('en-IN')}</td>
-                                                            <td>${trans.loan.toLocaleString('en-IN')}</td>
-                                                            <td>${trans.cb.toLocaleString('en-IN')}</td>
-                                                        </tr>
-                                            `).join('')}
-                                            <tr class="total-row">
-                                                <td class="month-cell">TOTAL</td>
-                                                <td>-</td>
-                                                <td>${employee.transactions.reduce((sum, trans) => sum + trans.subscription, 0).toLocaleString('en-IN')}</td>
-                                                <td>${employee.transactions.reduce((sum, trans) => sum + trans.recovery, 0).toLocaleString('en-IN')}</td>
-                                                <td>${employee.transactions.reduce((sum, trans) => sum + trans.loan, 0).toLocaleString('en-IN')}</td>
-                                                <td>${employee.transactions.reduce((sum, trans) => sum + trans.cb, 0).toLocaleString('en-IN')}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                        ` : `
-                            <div class="empty-state">
-                                <i class="bi bi-inbox"></i>
-                                <p>No transactions recorded for this employee</p>
-                            </div>
-                        `}
-                    </div>
-                </div>
-                
-                    <h6 class="mt-3 mb-2">Annual Summary</h6>
-                    <table class="table table-sm table-bordered">
-                        <tr>
-                            <td>Opening Balance</td>
-                            <td class="text-end">${summary.totalOB.toLocaleString('en-IN')}</td>
-                        </tr>
-                        <tr>
-                            <td>Total Subscription</td>
-                            <td class="text-end">${summary.totalSubscription.toLocaleString('en-IN')}</td>
-                        </tr>
-                        <tr>
-                            <td>Total DA + PF Recovery</td>
-                            <td class="text-end">${summary.totalDA.toLocaleString('en-IN')}</td>
-                        </tr>
-                        <tr>
-                            <td>Total Withdrawal</td>
-                            <td class="text-end">${summary.totalLoan.toLocaleString('en-IN')}</td>
-                        </tr>
-                        <tr>
-                            <td>Cumulative (Sum of all CB)</td>
-                            <td class="text-end">${summary.cumulative.toLocaleString('en-IN')}</td>
-                        </tr>
-                        <tr>
-                            <td>Interest (7.1% p.a.)</td>
-                            <td class="text-end">${summary.interest.toLocaleString('en-IN')}</td>
-                        </tr>
-                        <tr>
-                            <td>Gross (OB + Subscription + Interest)</td>
-                            <td class="text-end">${summary.gross.toLocaleString('en-IN')}</td>
-                        </tr>
-                        <tr class="table-primary">
-                            <td>Closing Balance</td>
-                            <td class="text-end">${summary.closingBalance.toLocaleString('en-IN')}</td>
-                        </tr>
-                        </table>
-                    </div>
-                </div>
-                
-                
-            `;
+                `;
+            });
+            
+            document.getElementById('searchResult').innerHTML = resultHTML;
         }
         
-        // Print search employee results - FIXED VERSION with GPF table
-        function printSearchEmployee() {
-            if (!searchedEmployee) {
+        // Print search employee results - UPDATED TO HANDLE INDEX
+        function printSearchEmployee(index) {
+            if (searchedEmployees.length === 0 || index === undefined || index >= searchedEmployees.length) {
                 showNotification('Please search for an employee first', 'error');
                 return;
             }
+            
+            const employee = searchedEmployees[index];
             
             // Create a comprehensive print stylesheet
             const printStyles = document.createElement('style');
@@ -3602,7 +3927,7 @@
                     body {
                         font-family: Arial, sans-serif;
                         margin: 10mm;
-                        font-size: 6px;
+                        font-size: 10px;
                     }
                     
                     /* Hide all elements except what we want to print */
@@ -3633,14 +3958,14 @@
                     }
                     
                     .print-header h1 {
-                        font-size: 7px !important;
+                        font-size: 14px !important;
                         font-weight: bold !important;
                         margin-bottom: 5px !important;
                         color: #4a7ca7 !important;
                     }
                     
                     .print-header h2 {
-                        font-size: 5px !important;
+                        font-size: 10px !important;
                         margin-bottom: 0 !important;
                         color: #6c9bd2 !important;
                     }
@@ -3671,16 +3996,22 @@
                     
                     /* Employee details */
                     .print-details {
-                        margin-bottom: 20px !important;
-                        padding: 15px !important;
+                        width:300px;
+                        
+                        margin-top:10px;
+                        margin-left:199px;
+                        margin-bottom: 10px !important;
+                        padding: 3px !important;
                         background-color: #f5f8fc !important;
                         border: 1px solid #ddd !important;
                     }
                     
                     .print-detail-row {
                         display: flex !important;
-                        margin-bottom: 8px !important;
+                        margin-left:20px;
+                        margin-bottom: 6px !important;
                         font-size: 9px !important;
+                        
                     }
                     
                     .print-detail-label {
@@ -3692,9 +4023,10 @@
                         flex: 1 !important;
                     }
                     
-                    /* GPF Transactions table - NEW STYLES */
+                    /* GPF Transactions table */
                     .print-gpf-table {
-                        width: 100% !important;
+                        margin-left:65px;
+                        width: 80% !important;
                         border-collapse: collapse !important;
                         margin-bottom: 6px !important;
                         font-size: 10px !important;
@@ -3705,13 +4037,13 @@
                         color: white !important;
                         border: 1px solid #ddd !important;
                         padding: 8px !important;
-                        text-align: left !important;
+                        text-align: center !important;
                         font-weight: bold !important;
                     }
                     
                     .print-gpf-table td {
                         border: 1px solid #ddd !important;
-                        padding: 8px !important;
+                        padding: 5px !important;
                     }
                     
                     .print-gpf-table td:first-child {
@@ -3734,7 +4066,8 @@
                     }
                     
                     .print-summary-table {
-                        width: 100% !important;
+                        width: 80% !important;
+                        margin-left:65px;
                         border-collapse: collapse !important;
                         font-size: 10px !important;
                     }
@@ -3750,7 +4083,7 @@
                     
                     .print-summary-table td {
                         border: 1px solid #ddd !important;
-                        padding: 8px !important;
+                        padding: 5px !important;
                     }
                     
                     .print-summary-table td:first-child {
@@ -3774,12 +4107,26 @@
                         left: 0 !important;
                         width: 100% !important;
                         text-align: center !important;
-                        padding: 10px !important;
+                        padding: 9px !important;
                         font-size: 9px !important;
                         color: #666 !important;
                         border-top: 1px solid #ddd !important;
+                        z-index: 1000 !important;
                     }
                     
+                    /* QR Code Styles */
+            .qr-code-container {
+                display: flex;
+                justify-content: flex-end; /* Align QR to right */
+                align-items: center;
+            }
+            .qr-code-img {
+                width: 100px;
+                height: 100px;
+                border: 1px solid #333; /* Optional: Border to make QR visible on white paper */
+                padding: 2px;
+                background: white;
+            }
                     /* Override all other styles */
                     body {
                         font-family: Arial, sans-serif !important;
@@ -3787,13 +4134,13 @@
                         padding: 0 !important;
                         background: white !important;
                         color: black !important;
-                        font-size: 6px !important;
+                        font-size: 10px !important;
                     }
                 }
             `;
             
             // Get the summary
-            const summary = calculateSummary(searchedEmployee);
+            const summary = calculateSummary(employee);
             
             // Create print container with all content
             const printContainer = document.createElement('div');
@@ -3802,90 +4149,96 @@
                 <div class="print-navbar">
                     <div class="print-navbar-brand">
                         <img src="https://ik.imagekit.io/htkonwcyl/pics/Nlr-zp.jpeg?updatedAt=1765869301452" alt="GPF Logo">H-SECTION<br> ZP NELLORE<br>zppnlrhsec@gmail.com
-                        <h1 class="custome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <h1 class="custome">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            DEPUTY CHEIF EXECUTIVE OFFICER,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ZP, NELLORE </h1>
-
-                            
-                      
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            DEPUTY CHEIF EXECUTIVE OFFICER,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ZP, NELLORE </h1>
                     </div>
+                    
                 </div>
                 
-                <div class="header-section no-print">
+                <div class="header-section ">
                 <img src="https://ik.imagekit.io/htkonwcyl/pics/Emblem_of_Andhra_Pradesh_before_2014.svg.png?updatedAt=1765727491775" alt="GPF Logo" class="logo">
                 <h1 class=s2>ZP PROVIDENT FUND</h1>
                 <h2 class=s3>ANDHRA PRADESH, SPSR NELLORE DISTRICT</h2>
+
+                
             </div>
                 
                 <div class="print-details , h2">
-                    <h6 class="size">Employee Details</h6>
+                    <h6 class="size">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Employee Details</h6>
+                    <div class="print-detail-row">
+                        <span class="print-detail-label">Employee ID:</span>
+                        <span class="print-detail-value">${employee.id}</span>
+                    </div>
                     <div class="print-detail-row">
                         <span class="print-detail-label">GPF Account No:</span>
-                        <span class="print-detail-value">${searchedEmployee.gpfAccountNo}</span>
+                        <span class="print-detail-value">${employee.gpfAccountNo}</span>
                     </div>
                     <div class="print-detail-row">
                         <span class="print-detail-label">Employee Name:</span>
-                        <span class="print-detail-value">${searchedEmployee.name}</span>
+                        <span class="print-detail-value">${employee.name}</span>
                     </div>
                     <div class="print-detail-row">
                         <span class="print-detail-label">Designation:</span>
-                        <span class="print-detail-value">${searchedEmployee.designation}</span>
+                        <span class="print-detail-value">${employee.designation}</span>
                     </div>
                     <div class="print-detail-row">
                         <span class="print-detail-label">Mandal:</span>
-                        <span class="print-detail-value">${searchedEmployee.mandal}</span>
+                        <span class="print-detail-value">${employee.mandal}</span>
                     </div>
                     <div class="print-detail-row">
                         <span class="print-detail-label">Place Of Work:</span>
-                        <span class="print-detail-value">${searchedEmployee.placeOfWork}</span>
+                        <span class="print-detail-value">${employee.placeOfWork}</span>
                     </div>
                     <div class="print-detail-row">
                         <span class="print-detail-label">Financial Year:</span>
-                        <span class="print-detail-value">${searchedEmployee.financialYear}</span>
+                        <span class="print-detail-value">${employee.financialYear}</span>
                     </div>
                     <div class="print-detail-row">
                         <span class="print-detail-label">Opening Balance:</span>
-                        <span class="print-detail-value">${searchedEmployee.openingBalance.toLocaleString('en-IN')}</span>
+                        <span class="print-detail-value">${formatIndianCurrency(employee.openingBalance)}</span>
                     </div>
                 </div>
                 
-                <!-- GPF Transactions Table - NEW SECTION -->
+                <!-- GPF Transactions Table -->
                 <div class="print-gpf-section ">
-                    <h6 class="size">Monthly GPF Transactions</h6>
-                    ${searchedEmployee.transactions.length > 0 ? `
+                    <h6 class="size"></h6>
+                    ${employee.transactions.length > 0 ? `
                         <table class="print-gpf-table , h1">
                             <thead>
                                 <tr>
-                                    <th style="width: 15%">MONTH</th>
-                                    <th style="width: 16%">OB</th>
-                                    <th style="width: 16%">SUBSCRIPTION</th>
-                                    <th style="width: 16%">DA + PF RECOVERY</th>
-                                    <th style="width: 16%">WITHDRAWAL</th>
-                                    <th style="width: 21%">CB</th>
+                                    <th style="width: 12%">MONTH</th>
+                                    <th style="width: 12%">OB</th>
+                                    <th style="width: 12%">SUBSCRIPTION</th>
+                                    <th style="width: 14%">DA + PF RECOVERY</th>
+                                    <th style="width: 12%">WITHDRAWAL</th>
+                                    <th style="width: 12%">CB</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                ${searchedEmployee.transactions.map((trans, index) => `
+                                ${employee.transactions.map((trans, index) => `
                                     <tr>
                                         <td class="month-cell">${trans.month}</td>
-                                        <td>${trans.ob.toLocaleString('en-IN')}</td>
-                                        <td>${trans.subscription.toLocaleString('en-IN')}</td>
-                                        <td>${trans.recovery.toLocaleString('en-IN')}</td>
-                                        <td>${trans.loan.toLocaleString('en-IN')}</td>
-                                        <td>${trans.cb.toLocaleString('en-IN')}</td>
+                                        <td>${formatIndianCurrency(trans.ob)}</td>
+                                        <td>${formatIndianCurrency(trans.subscription)}</td>
+                                        <td>${formatIndianCurrency(trans.recovery)}</td>
+                                        <td>${formatIndianCurrency(trans.loan)}</td>
+                                        <td>${formatIndianCurrency(trans.cb)}</td>
                                     </tr>
                                 `).join('')}
                                 <tr class="total-row">
                                     <td class="month-cell">TOTAL</td>
                                     <td>-</td>
-                                    <td>${searchedEmployee.transactions.reduce((sum, trans) => sum + trans.subscription, 0).toLocaleString('en-IN')}</td>
-                                    <td>${searchedEmployee.transactions.reduce((sum, trans) => sum + trans.recovery, 0).toLocaleString('en-IN')}</td>
-                                    <td>${searchedEmployee.transactions.reduce((sum, trans) => sum + trans.loan, 0).toLocaleString('en-IN')}</td>
-                                    <td>${searchedEmployee.transactions.reduce((sum, trans) => sum + trans.cb, 0).toLocaleString('en-IN')}</td>
+                                    <td>${formatIndianCurrency(employee.transactions.reduce((sum, trans) => sum + trans.subscription, 0))}</td>
+                                    <td>${formatIndianCurrency(employee.transactions.reduce((sum, trans) => sum + trans.recovery, 0))}</td>
+                                    <td>${formatIndianCurrency(employee.transactions.reduce((sum, trans) => sum + trans.loan, 0))}</td>
+                                    <td>${formatIndianCurrency(employee.transactions.reduce((sum, trans) => sum + trans.cb, 0))}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -3898,44 +4251,44 @@
                 </div>
                 
                 <div class="print-summary">
-                    <h6 class="size">Annual Summary</h6>
+                    <h6 class="size"></h6>
                     <table class="print-summary-table">
                         <tr>
                             <td>Opening Balance</td>
-                            <td>${summary.totalOB.toLocaleString('en-IN')}</td>
+                            <td>${formatIndianCurrency(summary.totalOB)}</td>
                         </tr>
                         <tr>
                             <td>Total Subscription</td>
-                            <td>${summary.totalSubscription.toLocaleString('en-IN')}</td>
+                            <td>${formatIndianCurrency(summary.totalSubscription)}</td>
                         </tr>
                         <tr>
-                            <td>Total DA + PF Recovery</td>
-                            <td>${summary.totalDA.toLocaleString('en-IN')}</td>
+                            <td>Total DA/PF Recovery</td>
+                            <td>${formatIndianCurrency(summary.totalDA)}</td>
                         </tr>
                         <tr>
                             <td>Total Withdrawal</td>
-                            <td>${summary.totalLoan.toLocaleString('en-IN')}</td>
+                            <td>${formatIndianCurrency(summary.totalLoan)}</td>
                         </tr>
                         <tr>
-                            <td>Cumulative (Sum of all CB)</td>
-                            <td>${summary.cumulative.toLocaleString('en-IN')}</td>
+                            <td>Cumulative </td>
+                            <td>${formatIndianCurrency(summary.cumulative)}</td>
                         </tr>
                         <tr>
-                            <td>Interest (7.1% p.a.)</td>
-                            <td>${summary.interest.toLocaleString('en-IN')}</td>
+                            <td>Total Interest Earned</td>
+                            <td>${formatIndianCurrency(summary.totalInterest)}</td>
                         </tr>
                         <tr>
-                            <td>Gross (OB + Subscription + Interest)</td>
-                            <td>${summary.gross.toLocaleString('en-IN')}</td>
+                            <td>Gross </td>
+                            <td>${formatIndianCurrency(summary.gross)}</td>
                         </tr>
                         <tr class="print-highlight">
                             <td>Closing Balance</td>
-                            <td>${summary.closingBalance.toLocaleString('en-IN')}</td>
+                            <td>${formatIndianCurrency(summary.closingBalance)}</td>
                         </tr>
                     </table>
                 </div>
                 
-                <div class="print-footer ">
+                <div>
                     <p class="small">Generated on: ${new Date().toLocaleDateString('en-IN', {
                         year: 'numeric',
                         month: 'long',
@@ -4012,6 +4365,7 @@
             currentEmployee = employee;
             
             // Update employee details
+            document.getElementById('employeeId').textContent = employee.id;
             document.getElementById('gpfAccountNo').textContent = employee.gpfAccountNo;
             document.getElementById('employeeName').textContent = employee.name;
             document.getElementById('designation').textContent = employee.designation;
@@ -4041,8 +4395,13 @@
                 // Convert to editable fields
                 employeeDetails.innerHTML = `
                     <div class="detail-row">
+                        <span class="detail-label">Employee ID:</span>
+                        <input type="text" class="detail-input" id="editEmployeeId" value="${currentEmployee.id}" readonly>
+                        <span class="edit-indicator"><i class="bi bi-pencil-square"></i></span>
+                    </div>
+                    <div class="detail-row">
                         <span class="detail-label">GPF Account No:</span>
-                        <input type="text" class="detail-input" id="editGpfAccountNo" value="${currentEmployee.gpfAccountNo}" readonly>
+                        <input type="text" class="detail-input" id="editGpfAccountNo" value="${currentEmployee.gpfAccountNo}">
                         <span class="edit-indicator"><i class="bi bi-pencil-square"></i></span>
                     </div>
                     <div class="detail-row">
@@ -4084,6 +4443,10 @@
             } else {
                 // Convert back to display mode
                 employeeDetails.innerHTML = `
+                    <div class="detail-row">
+                        <span class="detail-label">Employee ID:</span>
+                        <span class="detail-value" id="employeeId">${currentEmployee.id}</span>
+                    </div>
                     <div class="detail-row">
                         <span class="detail-label">GPF Account No:</span>
                         <span class="detail-value" id="gpfAccountNo">${currentEmployee.gpfAccountNo}</span>
@@ -4141,14 +4504,14 @@
                 const tr = document.createElement('tr');
                 tr.className = isEditMode ? 'edit-mode' : '';
                 
-                // Create HTML for row (without remarks column)
+                // Create HTML for row (without interest column)
                 let rowHtml = `
                     <td class="month-cell">${trans.month}</td>
-                    <td>${isEditMode && index === 0 ? `<input type="text" value="${trans.ob}" data-field="ob" data-index="${index}" maxlength="8">` : trans.ob.toLocaleString('en-IN')}</td>
-                    <td>${isEditMode ? `<input type="text" value="${trans.subscription}" data-field="subscription" data-index="${index}" maxlength="8">` : trans.subscription.toLocaleString('en-IN')}</td>
-                    <td>${isEditMode ? `<input type="text" value="${trans.recovery}" data-field="recovery" data-index="${index}" maxlength="8">` : trans.recovery.toLocaleString('en-IN')}</td>
-                    <td>${isEditMode ? `<input type="text" value="${trans.loan}" data-field="loan" data-index="${index}" maxlength="8">` : trans.loan.toLocaleString('en-IN')}</td>
-                    <td>${trans.cb.toLocaleString('en-IN')}</td>
+                    <td>${isEditMode && index === 0 ? `<input type="text" value="${trans.ob}" data-field="ob" data-index="${index}" maxlength="8">` : formatIndianCurrency(trans.ob)}</td>
+                    <td>${isEditMode ? `<input type="text" value="${trans.subscription}" data-field="subscription" data-index="${index}" maxlength="8">` : formatIndianCurrency(trans.subscription)}</td>
+                    <td>${isEditMode ? `<input type="text" value="${trans.recovery}" data-field="recovery" data-index="${index}" maxlength="8">` : formatIndianCurrency(trans.recovery)}</td>
+                    <td>${isEditMode ? `<input type="text" value="${trans.loan}" data-field="loan" data-index="${index}" maxlength="8">` : formatIndianCurrency(trans.loan)}</td>
+                    <td>${formatIndianCurrency(trans.cb)}</td>
                 `;
                 
                 tr.innerHTML = rowHtml;
@@ -4160,16 +4523,16 @@
                 totalCB += trans.cb;
             });
             
-            // Add total row (without remarks column)
+            // Add total row (without interest column)
             const totalTr = document.createElement('tr');
             totalTr.className = 'total-row';
             totalTr.innerHTML = `
                 <td class="month-cell">TOTAL</td>
                 <td>-</td>
-                <td>${totalSubscription.toLocaleString('en-IN')}</td>
-                <td>${totalRecovery.toLocaleString('en-IN')}</td>
-                <td>${totalLoan.toLocaleString('en-IN')}</td>
-                <td>${totalCB.toLocaleString('en-IN')}</td>
+                <td>${formatIndianCurrency(totalSubscription)}</td>
+                <td>${formatIndianCurrency(totalRecovery)}</td>
+                <td>${formatIndianCurrency(totalLoan)}</td>
+                <td>${formatIndianCurrency(totalCB)}</td>
             `;
             tbody.appendChild(totalTr);
             
@@ -4193,14 +4556,14 @@
             const summary = calculateSummary(currentEmployee);
             
             // Update summary table
-            document.getElementById('totalOB').textContent = summary.totalOB.toLocaleString('en-IN');
-            document.getElementById('totalSubscription').textContent = summary.totalSubscription.toLocaleString('en-IN');
-            document.getElementById('totalDA').textContent = summary.totalDA.toLocaleString('en-IN');
-            document.getElementById('totalLoan').textContent = summary.totalLoan.toLocaleString('en-IN');
-            document.getElementById('cumulative').textContent = summary.cumulative.toLocaleString('en-IN');
-            document.getElementById('interest').textContent = summary.interest.toLocaleString('en-IN');
-            document.getElementById('gross').textContent = summary.gross.toLocaleString('en-IN');
-            document.getElementById('closingBalance').textContent = summary.closingBalance.toLocaleString('en-IN');
+            document.getElementById('totalOB').textContent = formatIndianCurrency(summary.totalOB);
+            document.getElementById('totalSubscription').textContent = formatIndianCurrency(summary.totalSubscription);
+            document.getElementById('totalDA').textContent = formatIndianCurrency(summary.totalDA);
+            document.getElementById('totalLoan').textContent = formatIndianCurrency(summary.totalLoan);
+            document.getElementById('cumulative').textContent = formatIndianCurrency(summary.cumulative);
+            document.getElementById('totalInterest').textContent = formatIndianCurrency(summary.totalInterest);
+            document.getElementById('gross').textContent = formatIndianCurrency(summary.gross);
+            document.getElementById('closingBalance').textContent = formatIndianCurrency(summary.closingBalance);
         }
         
         // Handle input change with delay
@@ -4233,8 +4596,8 @@
                 const currentFieldIndex = fields.indexOf(field);
                 
                 // If not the last field, move to the next field in the same row
-                if (currentFieldIndex < fields.length - 1) {
-                    const nextField = fields[currentFieldIndex + 1];
+                if (currentFieldIndex < fields.length -1) {
+                    const nextField = fields[currentFieldIndex +1];
                     const nextInput = document.querySelector(`input[data-field="${nextField}"][data-index="${index}"]`);
                     if (nextInput) {
                         nextInput.focus();
@@ -4252,7 +4615,7 @@
             }
         }
         
-        // Calculate CB (Closing Balance)
+        // Calculate CB (Closing Balance) - CORRECTED VERSION
         function calculateCB() {
             if (!isEditMode) return;
             
@@ -4260,17 +4623,17 @@
             document.querySelectorAll('#gpfTableBody input').forEach(input => {
                 const index = parseInt(input.dataset.index);
                 const field = input.dataset.field;
-                const value = parseInt(input.value) || 0;
+                const value = parseFloat(input.value) || 0;
                 currentEmployee.transactions[index][field] = value;
             });
             
-            // Calculate CB for each month
+            // Calculate CB for each month with correct formula
             currentEmployee.transactions.forEach((trans, index) => {
-                // For the first month, OB is the opening balance (editable)
+                // For the first month (April), CB = OB + Subscription + DA + PF Recovery - Withdrawal
                 if (index === 0) {
-                    trans.cb = trans.ob + trans.subscription + trans.recovery - trans.loan;
+                    trans.cb = trans.ob + trans.subscription  + trans.recovery - trans.loan;
                 } else {
-                    // For subsequent months, OB is the previous month's CB
+                    // For subsequent months, CB = Previous month CB + Subscription + DA + PF Recovery - Withdrawal
                     trans.ob = currentEmployee.transactions[index - 1].cb;
                     trans.cb = trans.ob + trans.subscription + trans.recovery - trans.loan;
                 }
@@ -4284,14 +4647,14 @@
                 if (index < currentEmployee.transactions.length) {
                     // Only update OB for rows that are not editable (index > 0)
                     if (index > 0) {
-                        cell.textContent = currentEmployee.transactions[index].ob.toLocaleString('en-IN');
+                        cell.textContent = formatIndianCurrency(currentEmployee.transactions[index].ob);
                     }
                 }
             });
             
             cbCells.forEach((cell, index) => {
                 if (index < currentEmployee.transactions.length) {
-                    cell.textContent = currentEmployee.transactions[index].cb.toLocaleString('en-IN');
+                    cell.textContent = formatIndianCurrency(currentEmployee.transactions[index].cb);
                 }
             });
             
@@ -4316,13 +4679,13 @@
                 totalCB += trans.cb;
             });
             
-            // Update total row values (without remarks column)
+            // Update total row values (without interest column)
             const totalCells = document.querySelectorAll('#gpfTableBody .total-row td');
             if (totalCells.length >= 6) {
-                totalCells[2].textContent = totalSubscription.toLocaleString('en-IN'); // Subscription total
-                totalCells[3].textContent = totalRecovery.toLocaleString('en-IN');    // Recovery total
-                totalCells[4].textContent = totalLoan.toLocaleString('en-IN');        // Loan total
-                totalCells[5].textContent = totalCB.toLocaleString('en-IN');          // CB total
+                totalCells[2].textContent = formatIndianCurrency(totalSubscription); // Subscription total
+                totalCells[3].textContent = formatIndianCurrency(totalRecovery);    // Recovery total
+                totalCells[4].textContent = formatIndianCurrency(totalLoan);        // Loan total
+                totalCells[5].textContent = formatIndianCurrency(totalCB);          // CB total
             }
         }
         
@@ -4351,6 +4714,7 @@
                         const recovery = 0;
                         const loan = 0;
                         
+                        // Calculate CB with correct formula
                         runningCB = ob + subscription + recovery - loan;
                         
                         return {
@@ -4376,6 +4740,9 @@
                 // Save changes - Save both employee details and transactions
                 isEditMode = false;
                 
+                // FIX: Convert ID to Number to prevent type mismatch with database
+                currentEmployee.id = parseInt(document.getElementById('editEmployeeId').value);
+                
                 // Save employee details from form
                 currentEmployee.gpfAccountNo = document.getElementById('editGpfAccountNo').value;
                 currentEmployee.name = document.getElementById('editEmployeeName').value;
@@ -4396,6 +4763,9 @@
                 if (empIndex !== -1) {
                     employees[empIndex] = currentEmployee;
                     localStorage.setItem('gpfEmployees', JSON.stringify(employees));
+                } else {
+                    showNotification('Error: Employee not found in database. Cannot save.', 'error');
+                    return;
                 }
                 
                 // Show print button after exiting edit mode
@@ -4412,7 +4782,7 @@
             }
         }
         
-        // Save record (new function)
+        // Save record (new function) - FIX FOR SAVING TRANSACTIONS
         function saveRecord() {
             if (!currentEmployee) {
                 showNotification('Please select an employee first', 'error');
@@ -4423,6 +4793,12 @@
                 showNotification('Please enter edit mode first by clicking UPDATE RECORD', 'error');
                 return;
             }
+            
+            // CRITICAL FIX: DO NOT OVERWRITE ID FROM INPUT.
+            // The input returns a String, the DB uses a Number.
+            // Overwriting the ID breaks the link to the database record.
+            // Since the input is readonly, we keep the ID as is.
+            // currentEmployee.id = document.getElementById('editEmployeeId').value; // REMOVED
             
             // Save employee details from form
             currentEmployee.gpfAccountNo = document.getElementById('editGpfAccountNo').value;
@@ -4440,6 +4816,9 @@
             if (empIndex !== -1) {
                 employees[empIndex] = currentEmployee;
                 localStorage.setItem('gpfEmployees', JSON.stringify(employees));
+            } else {
+                showNotification('Error: Employee not found in database. Cannot save.', 'error');
+                return;
             }
             
             showNotification('Employee details and transactions saved successfully! You can continue editing.', 'success');
@@ -4462,6 +4841,7 @@
             
             // Add header row
             excelData.push({
+                'Employee ID': 'Employee ID',
                 'GPF Account No': 'GPF Account No',
                 'Employee Name': 'Employee Name',
                 'Designation': 'Designation',
@@ -4481,6 +4861,7 @@
                 // Add transactions
                 currentEmployee.transactions.forEach(trans => {
                     excelData.push({
+                        'Employee ID': currentEmployee.id,
                         'GPF Account No': currentEmployee.gpfAccountNo,
                         'Employee Name': currentEmployee.name,
                         'Designation': currentEmployee.designation,
@@ -4488,17 +4869,18 @@
                         'Place Of Work': currentEmployee.placeOfWork,
                         'Financial Year': currentEmployee.financialYear,
                         'Month': trans.month,
-                        'OB': trans.ob,
-                        'Subscription': trans.subscription,
-                        'DA + PF Recovery': trans.recovery,
-                        'Withdrawal': trans.loan,
-                        'CB': trans.cb
+                        'OB': Math.round(trans.ob),
+                        'Subscription': Math.round(trans.subscription),
+                        'DA + PF Recovery': Math.round(trans.recovery),
+                        'Withdrawal': Math.round(trans.loan),
+                        'CB': Math.round(trans.cb)
                     });
                 });
                 
                 // Add summary
                 const summary = calculateSummary(currentEmployee);
                 excelData.push({
+                    'Employee ID': currentEmployee.id,
                     'GPF Account No': currentEmployee.gpfAccountNo,
                     'Employee Name': currentEmployee.name,
                     'Designation': currentEmployee.designation,
@@ -4506,13 +4888,13 @@
                     'Place Of Work': currentEmployee.placeOfWork,
                     'Financial Year': currentEmployee.financialYear,
                     'Month': 'SUMMARY',
-                    'OB': summary.totalOB,
-                    'Subscription': summary.totalSubscription,
-                    'DA + PF Recovery': summary.totalDA,
-                    'Withdrawal': summary.totalLoan,
-                    'Interest (7.1% p.a.)': summary.interest,
-                    'Gross (OB + Subscription + Interest)': summary.gross,
-                    'Closing Balance': summary.closingBalance
+                    'OB': Math.round(summary.totalOB),
+                    'Subscription': Math.round(summary.totalSubscription),
+                    'DA + PF Recovery': Math.round(summary.totalDA),
+                    'Withdrawal': Math.round(summary.totalLoan),
+                    'Interest (7.1% p.a.)': Math.round(summary.totalInterest),
+                    'Gross (OB + Subscription + Interest)': Math.round(summary.gross),
+                    'Closing Balance': Math.round(summary.closingBalance)
                 });
                 
                 // Create workbook
@@ -4522,7 +4904,7 @@
                 
                 // Generate filename with date
                 const date = new Date().toISOString().split('T')[0];
-                const filename = `ZPGPF_${currentEmployee.gpfAccountNo}_${currentEmployee.name}_${date}.xlsx`;
+                const filename = `ZPGPF_ID${currentEmployee.id}_${currentEmployee.gpfAccountNo}_${currentEmployee.name}_${date}.xlsx`;
                 
                 // Save file
                 XLSX.writeFile(wb, filename);
@@ -4542,6 +4924,7 @@
             
             // Add header row only once
             excelData.push([
+                'Employee ID',
                 'GPF Account No',
                 'Employee Name',
                 'Designation',
@@ -4586,7 +4969,7 @@
             
             // Add summary headers
             excelData[0].push(
-                'Interest (7.1% p.a.)',
+                'Total Interest Earned',
                 'Gross (OB + Sub + Int)',
                 'Closing Balance'
             );
@@ -4594,51 +4977,52 @@
             // Add employee data rows
             employees.forEach(emp => {
                 const employeeRow = [
+                    emp.id,
                     emp.gpfAccountNo,
                     emp.name,
                     emp.designation,
                     emp.mandal,
                     emp.placeOfWork,
                     emp.financialYear,
-                    emp.openingBalance
+                    Math.round(emp.openingBalance)
                 ];
                 
                 // Add subscription data for each month
                 months.forEach(month => {
                     const trans = emp.transactions.find(t => t.month === month);
-                    employeeRow.push(trans ? trans.subscription : 0);
+                    employeeRow.push(trans ? Math.round(trans.subscription) : 0);
                 });
                 
                 // Add total subscription
                 const totalSubscription = emp.transactions.reduce((sum, trans) => sum + trans.subscription, 0);
-                employeeRow.push(totalSubscription);
+                employeeRow.push(Math.round(totalSubscription));
                 
                 // Add DA + PF Recovery data for each month
                 months.forEach(month => {
                     const trans = emp.transactions.find(t => t.month === month);
-                    employeeRow.push(trans ? trans.recovery : 0);
+                    employeeRow.push(trans ? Math.round(trans.recovery) : 0);
                 });
                 
                 // Add total DA + PF Recovery
                 const totalDA = emp.transactions.reduce((sum, trans) => sum + trans.recovery, 0);
-                employeeRow.push(totalDA);
+                employeeRow.push(Math.round(totalDA));
                 
                 // Add Loan data for each month
                 months.forEach(month => {
                     const trans = emp.transactions.find(t => t.month === month);
-                    employeeRow.push(trans ? trans.loan : 0);
+                    employeeRow.push(trans ? Math.round(trans.loan) : 0);
                 });
                 
                 // Add total Loan
                 const totalLoan = emp.transactions.reduce((sum, trans) => sum + trans.loan, 0);
-                employeeRow.push(totalLoan);
+                employeeRow.push(Math.round(totalLoan));
                 
                 // Calculate and add summary values
                 const summary = calculateSummary(emp);
                 employeeRow.push(
-                    summary.interest,
-                    summary.gross,
-                    summary.closingBalance
+                    Math.round(summary.totalInterest),
+                    Math.round(summary.gross),
+                    Math.round(summary.closingBalance)
                 );
                 
                 // Add complete row to data
@@ -4652,6 +5036,7 @@
             
             // Set column widths
             const colWidths = [
+                { wch: 12 }, // Employee ID
                 { wch: 15 }, // GPF Account No
                 { wch: 25 }, // Employee Name
                 { wch: 20 }, // Designation
@@ -4678,7 +5063,7 @@
             colWidths.push({ wch: 18 }); // Total Withdrawal
             
             colWidths.push(
-                { wch: 18 }, // Interest
+                { wch: 20 }, // Total Interest Earned
                 { wch: 25 }, // Gross
                 { wch: 18 }  // Closing Balance
             );
@@ -4720,7 +5105,7 @@
             }
         }
         
-        // Delete single record function
+        // Delete single record function - UPDATED TO HANDLE MULTIPLE EMPLOYEES WITH SAME GPF
         function deleteSingleEmployee() {
             const gpfAccountNo = document.getElementById('deleteGpfAccountNo').value.trim();
             
@@ -4729,44 +5114,39 @@
                 return;
             }
             
-            const employee = employees.find(e => e.gpfAccountNo === gpfAccountNo);
+            const matchingEmployees = employees.filter(e => e.gpfAccountNo === gpfAccountNo);
             
-            if (!employee) {
-                showNotification('No employee found with GPF Account No: ' + gpfAccountNo, 'error');
+            if (matchingEmployees.length === 0) {
+                showNotification('No employees found with GPF Account No: ' + gpfAccountNo, 'error');
                 return;
             }
             
-            if (confirm('Are you sure you want to delete this employee record?')) {
-                employees = employees.filter(e => e.gpfAccountNo !== gpfAccountNo);
+            if (matchingEmployees.length >1) {
+                showNotification(`Multiple employees found with GPF Account No: ${gpfAccountNo}. Please use employee list to delete specific employee.`, 'warning');
+                return;
+            }
+            
+            // If only one employee found, proceed with deletion
+            const employee = matchingEmployees[0];
+            
+            if (confirm(`Are you sure you want to delete ${employee.name} (ID: ${employee.id})?`)) {
+                employees = employees.filter(e => e.id !== employee.id);
                 localStorage.setItem('gpfEmployees', JSON.stringify(employees));
                 
-                // Refresh the list if it's open
-                const listContainer = document.getElementById('employeeList');
-                if (listContainer) {
-                    const currentItems = listContainer.querySelectorAll('.employee-item');
-                    currentItems.forEach(item => {
-                        const empData = JSON.parse(item.getAttribute('data-emp').replace(/&quot;/g, '"'));
-                        if (empData.gpfAccountNo === gpfAccountNo) {
-                            item.remove();
-                        }
-                    });
-                }
-                
                 showNotification('Employee record deleted successfully!', 'success');
-                
-                // Update dashboard stats and employee selects
                 updateDashboardStats();
                 populateEmployeeSelects();
                 populateMandalSelects();
             }
         }
         
-        // Calculate summary values
+        // Calculate summary values - UPDATED WITH ROUND FIGURE INTEREST AND NEW CLOSING BALANCE FORMULA
         function calculateSummary(employee) {
             let totalSubscription = 0;
             let totalDA = 0;
             let totalLoan = 0;
             let cumulative = 0;
+            let totalInterest = 0;
             
             if (employee.transactions.length > 0) {
                 // Sum up all transactions
@@ -4776,19 +5156,21 @@
                     totalLoan += trans.loan;
                     cumulative += trans.cb; // Sum all CB values for cumulative
                 });
+                
+                // Calculate total interest using the correct formula: ROUND((Cumulative/12*7.1/100),0)
+                totalInterest = Math.round((cumulative / 12) * 7.1 / 100);
             } else {
                 // If no transactions, use opening balance
                 cumulative = employee.openingBalance;
+                // Interest on opening balance for the year
+                totalInterest = Math.round((employee.openingBalance / 12) * 7.1 / 100);
             }
             
-            // Calculate interest (7.1% per annum)
-            const interest = Math.round(cumulative / 12 * 7.1 / 100);
-            
             // Calculate gross (OB + Subscription + Interest)
-            const gross = employee.openingBalance + totalSubscription + interest;
+            const gross = employee.openingBalance + totalSubscription + totalInterest;
             
-            // Calculate closing balance (OB + Subscription + Interest - Loan)
-            const closingBalance = employee.openingBalance + totalSubscription + interest - totalLoan;
+            // CORRECTED FORMULA: Closing Balance = OB + Total Subscription + Total DA + PF Recovery + Total Interest Earned - Total Withdrawal
+            const closingBalance = employee.openingBalance + totalSubscription + totalDA + totalInterest - totalLoan;
             
             return {
                 totalOB: employee.openingBalance,
@@ -4796,7 +5178,7 @@
                 totalDA,
                 totalLoan,
                 cumulative,
-                interest,
+                totalInterest,
                 gross,
                 closingBalance
             };
@@ -4839,6 +5221,8 @@
                 e.returnValue = 'You have unsaved changes. Are you sure you want to leave?';
             }
         });
+
+        
     </script>
 </body>
 </html>
