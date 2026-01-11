@@ -1592,6 +1592,8 @@
         // Initialize SQLite
         const SQL = await initSqlJs({
             locateFile: (file) => 'gpf.db', // Looks for gpf.db in browser storage
+            // EXPLICITLY LOAD FROM CDN TO FIX THE ERROR
+  wasmBinary: 'https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.wasm'
         });
 
         console.log('SQLite Initialized successfully.');
